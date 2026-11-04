@@ -1,23 +1,33 @@
 # Claude Starter
 
-Ein forkbares Starter-Setup für [Claude Code](https://code.claude.com/docs/en/overview):
-Regeln, Hooks, Skills, Agenten und die Erklärung dazu, wann Claude was liest.
-Auf Deutsch. Ohne persönliche Pfade. Gedacht für Leute, die mit Claude effizient
-arbeiten wollen, statt jede Session neu zu erklären, wie sie ticken.
+Ich arbeite täglich mit [Claude Code](https://code.claude.com/docs/en/overview) und
+habe dabei viele Fehler gemacht. Fehler, die Tokens, Nerven und Stress gekostet haben.
+Die habe ich nach und nach zusammen mit Claude abgestellt, bis es richtig gut lief.
+Dieses Repo ist das Ergebnis: ein Startpunkt für alle, die mit Claude Code anfangen
+oder ihr Setup aufräumen wollen.
 
-**Was du bekommst:** ein `~/.claude`, das in jedem Projekt gilt, eine Projektvorlage,
-die mit dem Team im Repo liegt, Stack-Varianten zum Kopieren, und acht kurze
-Erklärtexte zu Kontext, Modi, Sessions, Modellen, Hooks und Gedächtnis.
+Es gibt viele solcher Setups da draußen, und einige erzählen Unsinn. Dieses hier kommt
+aus eigener Erfahrung, nicht aus Blogposts. Es ist keine perfekte Lösung. Es ist ein
+Anfang mit Regeln, die sich bewährt haben, Hooks, die wirklich blocken, und der
+Erklärung, wann Claude was liest. Forken, mit dem eigenen Claude einrichten, streichen,
+was nicht passt.
 
-**Was du nicht bekommst:** Magie. Jede Regel hier ist aus einem konkreten Fehler
-entstanden. Was nicht zu dir passt, streichst du. Tote Regeln verwirren Claude.
+**Was drin ist:** ein `~/.claude`, das in jedem Projekt gilt, eine Projektvorlage für
+das Repo, Stack-Varianten, ein Skill, mit dem dein Claude dich befragt und sich selbst
+einrichtet, und acht kurze Texte zu Kontext, Modi, Sessions, Modellen, Hooks und Gedächtnis.
+
+**Was nicht drin ist:** Magie. Jede Regel hier ist aus einem konkreten Fehler
+entstanden. Tote Regeln verwirren Claude, also weg damit, wenn sie nicht zu dir passen.
 
 ## In fünf Minuten
 
 1. **„Use this template“** oben rechts oder Fork.
 2. [`INSTALL.md`](INSTALL.md): `home/` nach `~/.claude/`, `project/` in dein Repo.
-3. [`docs/ANPASSEN.md`](docs/ANPASSEN.md): Identität, Hardrules, Modell, in dieser Reihenfolge.
-4. Eine Session starten, `/memory` tippen. Deine Regeln müssen in der Liste stehen.
+3. Eine Session starten und **`/einrichten`** tippen. Dein Claude stellt dir Fragen,
+   eine nach der anderen: wer du bist, wie du arbeitest, welche Hardrules du behalten
+   willst, welches Modell, welcher Stack. Danach füllt er die Dateien aus und zeigt dir
+   den Diff, bevor er schreibt. Wer lieber selbst Hand anlegt: [`docs/ANPASSEN.md`](docs/ANPASSEN.md).
+4. `/memory` tippen. Deine Regeln müssen in der Liste stehen.
 
 ## Das Prinzip in einem Bild
 
@@ -29,7 +39,7 @@ entstanden. Was nicht zu dir passt, streichst du. Tote Regeln verwirren Claude.
 │   ├── 10-workflow.md …                                   └── .claude/
 ├── settings.json                 Modell, deny, Hooks          ├── settings.json          Team-Permissions
 ├── hooks/      (Python)          Leitplanken, kein Bitten     ├── rules/  (pfadgebunden) Stack-Regeln
-└── skills/     /slice /audit /commit                          └── hooks/
+└── skills/     /einrichten /slice /audit /commit              └── hooks/
 ```
 
 Kurz in `CLAUDE.md`, ein Thema je Regel, harte Grenzen in Hooks, Referenzwissen in
@@ -40,7 +50,7 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 
 | Ordner | Inhalt | Wird zu |
 |---|---|---|
-| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 2 Hooks, 3 Skills | `~/.claude/` |
+| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 2 Hooks, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
 | [`project/`](project/) | Projekt-`CLAUDE.md`, `AGENTS.md`, `SLICES.md`, `.mcp.json`, Projekt-Settings, Vorlagen | `<repo>/` |
 | [`stacks/`](stacks/) | Varianten: generisch, Django + Angular, Astro | `<repo>/.claude/rules/` |
 | [`extras/`](extras/) | Agenten-Team (5 Rollen), Workflows, Manager-Skill. Opt-in. | `~/.claude/agents/`, `workflows/`, `skills/` |
@@ -75,16 +85,19 @@ Alles in [`home/rules/`](home/rules/), die Hardrules in
 ## Woher das kommt
 
 Aus einem echten `~/.claude`, das über Monate in Django-, Angular- und Astro-Projekten
-gewachsen ist, bereinigt um alles Persönliche. Die Regeln zu Definition of Done,
+gewachsen ist, ohne die Teile, die nur mich betreffen. Die Regeln zu Definition of Done,
 negativer Gegenprobe und Runtime-Pfad-Audit entstanden, nachdem ein Slice als
 „fertig“ galt, während ein zweiter Code-Pfad die neue Regel noch umging. Die
 Hooks entstanden, nachdem `git add .` ein drittes Mal Fremddateien committet hatte.
 
-## Mitmachen, Ideen, Rückmeldung
+## Ideen, Rückmeldung, Mitmachen
 
+Wenn du etwas hast, das bei dir besser läuft, eine Regel, einen Hook, einen Skill,
+eine Erklärung, die fehlt: schreib mir. Ich nehme gern auf, was sich bewährt, und
+teste es selbst, bevor es hier landet.
+
+- Direkt: Kay Dietrich auf LinkedIn, <https://www.linkedin.com/in/kaydietrich/>.
 - Issues und Pull Requests hier im Repo, Regeln dazu in [`CONTRIBUTING.md`](CONTRIBUTING.md).
-- Direkt an Kay Dietrich: <https://www.linkedin.com/in/kaydietrich/>.
-  Erfahrungen, Fragen, „bei mir geht das so besser“: alles willkommen.
 
 ## Lizenz
 

@@ -64,9 +64,16 @@ Optional: `CLAUDE.local.md.example` zu `CLAUDE.local.md` (nicht committen),
 `.mcp.json.example` zu `.mcp.json`, `.claude/team.md.example` zu `.claude/team.md`
 (nur mit [`extras/`](extras/)).
 
-## 4 Prüfen
+## 4 Einrichten lassen
 
-Eine Session im Repo starten, dann:
+Eine Session starten und `/einrichten` tippen. Claude fragt nach Rolle, Stack, Sprache,
+Arbeitsweise, Modell, geht die Hardrules einzeln durch und liest Befehle und Branches
+aus dem Repo. Er zeigt jeden Diff, bevor er schreibt. Nur `~/.claude`: `/einrichten home`.
+Nur das Repo: `/einrichten projekt`.
+
+## 5 Prüfen
+
+Danach in derselben Session:
 
 ```
 /memory          alle CLAUDE.md und Regeln gelistet?
@@ -77,9 +84,10 @@ Eine Session im Repo starten, dann:
 Und eine Probe für die Hooks: Claude bitten, `git add .` auszuführen. Die Antwort
 muss „Blockiert durch guard_shell“ enthalten.
 
-## 5 Weiter
+## 6 Weiter
 
-[`docs/ANPASSEN.md`](docs/ANPASSEN.md): was man in welcher Reihenfolge an sich anpasst.
+[`docs/ANPASSEN.md`](docs/ANPASSEN.md): dieselben Schritte von Hand, für alle, die
+lieber selbst in den Dateien arbeiten oder später nachjustieren.
 
 ## Deinstallation
 

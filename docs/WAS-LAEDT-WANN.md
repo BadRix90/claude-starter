@@ -43,7 +43,7 @@ Der Starter liefert `home/` für die Benutzerebene und `project/` für die Proje
 | „Immer X“, nur in diesem Repo | `<repo>/.claude/rules/<thema>.md` | `~/.claude` |
 | „X nur bei Python-Dateien“ | Regel mit `paths: ["**/*.py"]` | `CLAUDE.md` |
 | Etwas, das **nie** passieren darf | `permissions.deny` oder `PreToolUse`-Hook | Prosa |
-| Ein Ablauf, den du per `/name` startest | Skill mit `disable-model-invocation: true` | `CLAUDE.md` |
+| Ein Ablauf, den du per `/name` startest | Skill mit `disable-model-invocation: true` (so wie `/einrichten`) | `CLAUDE.md` |
 | Referenzwissen, das manchmal gebraucht wird | Skill ohne `disable-model-invocation` | `CLAUDE.md` |
 | Arbeit mit viel Ausgabe, die den Chat flutet | Subagent | Hauptsession |
 | Verbindung zu einem externen System | `.mcp.json` | Skill allein |

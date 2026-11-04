@@ -37,6 +37,6 @@
 
 ## Werkzeuge, die ich erwarte
 
-- Skills: `/slice`, `/audit`, `/commit` (siehe [`skills/`](skills/)); `/graphify` kommt von graphify selbst ([`41-graphify.md`](rules/41-graphify.md)).
+- Skills: `/einrichten` (Ersteinrichtung per Fragen), `/slice`, `/audit`, `/commit` (siehe [`skills/`](skills/)); `/graphify` kommt von graphify selbst ([`41-graphify.md`](rules/41-graphify.md)).
 - Hooks in [`settings.json`](settings.json) blocken `git add .`, Force-Push, das
   Umgehen von Git-Hooks und Schreibzugriffe auf `.env`. Das sind Leitplanken, keine Bitten.

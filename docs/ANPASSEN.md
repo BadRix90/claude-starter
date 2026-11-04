@@ -2,6 +2,8 @@
 
 > **Für wen:** alle, die den Starter gerade kopiert haben. In dieser Reihenfolge,
 > jeder Schritt zehn Minuten oder weniger. **Vorher:** [`../INSTALL.md`](../INSTALL.md).
+> **Abkürzung:** `/einrichten` in einer Session macht die Schritte 1 bis 7 als Gespräch,
+> Claude fragt und zeigt jeden Diff ([`../home/skills/einrichten/SKILL.md`](../home/skills/einrichten/SKILL.md)).
 
 ## 1 Identität
 
