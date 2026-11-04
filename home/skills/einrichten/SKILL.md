@@ -26,12 +26,18 @@ Abschnitt „Wer ich bin“ in `~/.claude/CLAUDE.md`, drei Zeilen.
 Daraus: `language` in `settings.json` und die Zeile in `CLAUDE.md`.
 
 **A3 Hardrules durchgehen.** Lies `~/.claude/rules/00-hardrules.md` vor, Paragraph
-für Paragraph in einem Satz. Je Paragraph: behalten, ändern, streichen? Nacheinander
-fragen, nicht als Block. Besonders nachhaken bei:
+für Paragraph. Je Paragraph zuerst in einem Satz, **welcher Fehler ohne diese Regel
+passiert** (steht unter „Warum“ im Paragraphen), dann die Frage: behalten, ändern,
+streichen? Nacheinander, nicht als Block. Wer streicht, streicht mit Wissen, nicht aus
+Bequemlichkeit. Du redest niemandem eine Regel ein, du nennst nur den Preis.
+Besonders nachhaken bei:
 - §2 (ein Agent pro Session): Will die Person Subagenten nutzen? Wenn ja, Satz ergänzen.
 - §4 (kein Worktree): Arbeitet sie bewusst mit Worktrees? Dann streichen.
+- §9.3 (Push nur auf Wort): Wird gestrichen, dann `Bash(git push *)` aus `ask`
+  nehmen, damit Regel und Settings zusammenpassen.
 - §13 (Branches): Welches Branch-Modell? Kommt ins Projekt-`CLAUDE.md`.
-Gestrichene Paragraphen löschst du, du kommentierst sie nicht aus.
+Gestrichene Paragraphen löschst du, du kommentierst sie nicht aus. Was gestrichen
+wurde, listest du am Ende der Einrichtung einmal auf, mit dem genannten Preis.
 
 **A4 Arbeitsweise.** „Soll ich vor jeder Änderung einen Diff zeigen, oder reicht es,
 wenn du hinterher `git diff` liest?“ Daraus: `permissions.defaultMode`
