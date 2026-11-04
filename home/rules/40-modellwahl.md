@@ -1,7 +1,7 @@
 # Modellwahl
 
 > **Lädt:** jede Session. **Hardrule:** §3 in [`00-hardrules.md`](00-hardrules.md).
-> **Hintergrund und Kosten:** [`docs/MODELLWAHL.md`](https://github.com/BadRix90/claude-code-bauplan/blob/main/docs/MODELLWAHL.md).
+> **Hintergrund und Kosten:** [`docs/MODELLWAHL.md`](https://github.com/BadRix90/claude-starter/blob/main/docs/MODELLWAHL.md).
 
 ## Vor jeder Session
 

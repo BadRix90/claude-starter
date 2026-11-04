@@ -1,6 +1,6 @@
 # Mitmachen
 
-Der Bauplan lebt davon, dass Leute ihre Erfahrungen zurückgeben. Drei Wege:
+Der Starter lebt davon, dass Leute ihre Erfahrungen zurückgeben. Drei Wege:
 
 ## Ideen und Rückmeldungen
 
@@ -17,7 +17,7 @@ Der Bauplan lebt davon, dass Leute ihre Erfahrungen zurückgeben. Drei Wege:
 - Neue Hooks kommen mit Tests unter `tests/`. `python -m pytest tests/ -q` muss grün sein.
 - Markdown-Links prüfen: `python tools/check_links.py` findet tote relative Links.
 - Commits nach Conventional Commits, Englisch, wie in `home/rules/31-git.md`.
-- Keine persönlichen Pfade, Ports, Firmennamen oder Hostnamen. Der Bauplan ist für alle.
+- Keine persönlichen Pfade, Ports, Firmennamen oder Hostnamen. Der Starter ist für alle.
 
 ## Neue Stack-Variante
 

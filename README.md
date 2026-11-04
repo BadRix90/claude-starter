@@ -1,4 +1,4 @@
-# Claude Code Bauplan
+# Claude Starter
 
 Ein forkbares Starter-Setup für [Claude Code](https://code.claude.com/docs/en/overview):
 Regeln, Hooks, Skills, Agenten und die Erklärung dazu, wann Claude was liest.

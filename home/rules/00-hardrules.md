@@ -13,7 +13,7 @@ Ausnahmen: destruktiv, shared-state, security-sensitiv, echte Mehrdeutigkeit (§
 ## §2 Ein Agent pro Session
 
 Standard ist genau ein Agent. Subagenten, Teams, Workflows und Nebensessions nur,
-wenn das Projekt sie ausdrücklich freischaltet (siehe `extras/` im Bauplan).
+wenn das Projekt sie ausdrücklich freischaltet (siehe `extras/` im Starter).
 Grund: Kosten, Nachvollziehbarkeit, keine doppelte Arbeit an denselben Dateien.
 
 ## §3 Modell bewusst wählen

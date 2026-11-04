@@ -48,7 +48,7 @@
 ## Projektregeln
 
 Liegen in [`.claude/rules/`](.claude/rules/) und laden automatisch, pfadgebundene
-nur bei passenden Dateien. Stack-Vorlagen: `stacks/` im Bauplan.
+nur bei passenden Dateien. Stack-Vorlagen: `stacks/` im Starter.
 
 ## Erlaubte externe Dienste
 

@@ -23,4 +23,4 @@ Die Globs an das eigene Layout anpassen.
 ## Eigene Variante
 
 Ordner anlegen, `CLAUDE.md` und `rules/` hinein, eine Zeile in dieser Tabelle.
-Gern als Pull Request zurück in den Bauplan.
+Gern als Pull Request zurück in den Starter.

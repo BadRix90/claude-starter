@@ -1,7 +1,7 @@
 # Quellen
 
 Stand: November 2026. Die offizielle Doku ändert sich oft; bei Zweifel gilt sie,
-nicht dieser Bauplan.
+nicht dieser Starter.
 
 ## Offizielle Dokumentation (Anthropic)
 

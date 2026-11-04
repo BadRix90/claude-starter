@@ -1,6 +1,6 @@
 # Anpassen nach dem Fork
 
-> **Für wen:** alle, die den Bauplan gerade kopiert haben. In dieser Reihenfolge,
+> **Für wen:** alle, die den Starter gerade kopiert haben. In dieser Reihenfolge,
 > jeder Schritt zehn Minuten oder weniger. **Vorher:** [`../INSTALL.md`](../INSTALL.md).
 
 ## 1 Identität

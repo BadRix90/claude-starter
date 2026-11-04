@@ -29,7 +29,7 @@ mit voller Modell-ID (`claude-opus-5-5`) oder den Variablen `ANTHROPIC_DEFAULT_*
 4. `"model"` in einer `settings.json`
 5. `ANTHROPIC_DEFAULT_MODEL`
 
-Der Bauplan setzt `"model": "opus"` in `home/settings.json`. Wer sparen will, nimmt
+Der Starter setzt `"model": "opus"` in `home/settings.json`. Wer sparen will, nimmt
 `sonnet` und schaltet für Architektur-Sessions bewusst hoch (Hardrule §3).
 
 ## Effort

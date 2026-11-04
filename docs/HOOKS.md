@@ -99,7 +99,7 @@ nicht als Befehl.
 - `.cmd`-Shims (npm, npx, eslint) lassen sich in Exec-Form nicht direkt starten.
   Shell-Form nutzen oder `node <skript>` aufrufen.
 - PowerShell-Skripte: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File <pfad>`.
-- Python-Hooks wie im Bauplan laufen überall gleich und brauchen kein `jq`.
+- Python-Hooks wie im Starter laufen überall gleich und brauchen kein `jq`.
 
 ## Ideen für eigene Hooks
 

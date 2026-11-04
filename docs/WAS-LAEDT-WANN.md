@@ -13,7 +13,7 @@
 | Projekt | `<repo>/CLAUDE.md`, `<repo>/.claude/` | alle, die das Repo klonen | ja |
 | Lokal | `<repo>/CLAUDE.local.md`, `.claude/settings.local.json` | diese Person, dieses Repo | nie |
 
-Der Bauplan liefert `home/` für die Benutzerebene und `project/` für die Projektebene.
+Der Starter liefert `home/` für die Benutzerebene und `project/` für die Projektebene.
 
 ## Wann was in den Kontext kommt
 
@@ -50,7 +50,7 @@ Der Bauplan liefert `home/` für die Benutzerebene und `project/` für die Proje
 | Ton, Länge, Rolle | Output-Style | Regeln |
 | Was du nur für dich willst | `CLAUDE.local.md`, `settings.local.json` | committete Dateien |
 
-## Lesereihenfolge im Bauplan
+## Lesereihenfolge im Starter
 
 So liest Claude die Dateien aus `home/`, und so sind sie verlinkt:
 

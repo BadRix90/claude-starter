@@ -36,7 +36,7 @@ Breite `allow`-Regeln wie `Bash(*)` werden im Auto-Modus verworfen, enge wie
 `Bash(npm test)` bleiben. Seit Claude Code 2.1.283 ist Auto der Start-Modus für
 interaktive Terminal-Sessions.
 
-### Empfehlung des Bauplans
+### Empfehlung des Starters
 
 - Neues Repo, fremder Code: **Plan** für die Analyse, dann **Manuell**.
 - Eigener Code, klarer Slice: **Accept Edits** mit `ask` für Push und Merge
@@ -58,7 +58,7 @@ Eine Session kann weitere Arbeit starten. Fünf Wege, plus drei Hilfsmittel.
 | **Dynamischer Workflow** (`workflows/*.js`) | ein Skript | viele Subagenten, ein Ergebnis | Audit über das ganze Repo, große Migration, Befunde gegenprüfen |
 | **Projekt** (claude.ai/code, Desktop) | Claude, in der Cloud | parallele Threads mit Projektanweisungen | Arbeit über Tage, Rechner darf aus sein |
 
-Hilfsmittel: **Worktrees** geben jeder Session einen eigenen Checkout (der Bauplan
+Hilfsmittel: **Worktrees** geben jeder Session einen eigenen Checkout (der Starter
 verbietet sie per Hardrule §4, weil sie Branches erzeugen und Aufräumen kosten;
 wer sie will, streicht §4 bewusst). **Cross-Session-Messaging** lässt Sessions sich
 Befunde schicken. **`/batch`** zerlegt eine große Änderung in 5 bis 30 Subagenten.
@@ -77,7 +77,7 @@ ohne Agent. `/fork` kopiert die ganze Session in eine Hintergrund-Session.
 - Ein Team nur, wenn Claude selbst Arbeit verteilen soll und die Dateien sauber
   trennbar sind. Teams isolieren nicht per Worktree.
 
-### Was der Bauplan daraus macht
+### Was der Starter daraus macht
 
 Hardrule §2 sagt: ein Agent pro Session. Das ist der Standard für Einzelentwickler,
 weil jede parallele Session Tokens vervielfacht und zwei Schreiber an denselben

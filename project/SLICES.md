@@ -14,4 +14,4 @@
 
 | Datum | ID | Zustand | Commit | Beleg |
 |---|---|---|---|---|
-| 2026-01-01 | C0 | VERIFIED | `abc1234` | Repo aus dem Bauplan angelegt |
+| 2026-01-01 | C0 | VERIFIED | `abc1234` | Repo aus dem Starter angelegt |

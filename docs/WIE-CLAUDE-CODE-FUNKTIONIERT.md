@@ -1,6 +1,6 @@
 # Wie Claude Code funktioniert
 
-> **Für wen:** alle, die den Bauplan einsetzen und verstehen wollen, warum die
+> **Für wen:** alle, die den Starter einsetzen und verstehen wollen, warum die
 > Regeln so geschnitten sind. **Danach lesen:** [`WAS-LAEDT-WANN.md`](WAS-LAEDT-WANN.md),
 > [`MODI-UND-SESSIONS.md`](MODI-UND-SESSIONS.md). Quelle: [offizielle Doku](https://code.claude.com/docs/en/how-claude-code-works).
 
@@ -57,7 +57,7 @@ Zusammenfassung behalten soll.
 - Sessions sind an das Verzeichnis gebunden. Branch wechseln ändert die Dateien,
   die Claude sieht, nicht den Chatverlauf.
 - Eine neue Session startet leer. Nur `CLAUDE.md`, Regeln und Auto-Memory tragen
-  Wissen hinüber. Das ist der Grund für `SLICES.md` und den Abschlussbericht im Bauplan.
+  Wissen hinüber. Das ist der Grund für `SLICES.md` und den Abschlussbericht im Starter.
 
 ## Was Claude Code selbst in den Kontext schiebt
 

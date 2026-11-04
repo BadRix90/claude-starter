@@ -10,7 +10,7 @@
 - Eine Datei je Thema, sprechender Name: `django.md`, `angular.md`, `api-design.md`.
 - Jede Datei beginnt mit einer Zeile, wann sie gilt und auf welche globale Regel sie aufbaut.
 - Nichts wiederholen, was in `~/.claude/rules/` steht. Nur ergänzen oder konkretisieren.
-- Vorlagen für Stacks liegen im Bauplan unter `stacks/<stack>/rules/`.
+- Vorlagen für Stacks liegen im Starter unter `stacks/<stack>/rules/`.
 
 ## Pfadgebundene Regel, Beispiel
 

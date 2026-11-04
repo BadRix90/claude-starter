@@ -17,7 +17,7 @@ cp -r ~/.claude ~/.claude.backup-$(date +%Y%m%d)
 ```
 
 Wer schon eine `~/.claude/CLAUDE.md` oder `settings.json` hat, mischt von Hand.
-Der Bauplan überschreibt nichts automatisch.
+Der Starter überschreibt nichts automatisch.
 
 ## 2 Benutzerebene: `home/` nach `~/.claude/`
 
@@ -29,7 +29,7 @@ cp -r home/skills/* ~/.claude/skills/
 cp home/settings.json ~/.claude/settings.json
 ```
 
-`settings.erklaert.jsonc` bleibt im Bauplan, sie ist nur Doku.
+`settings.erklaert.jsonc` bleibt im Starter, sie ist nur Doku.
 
 Gibt es schon eine `settings.json`: die Blöcke `permissions.deny`, `permissions.ask`
 und `hooks` übernehmen, `model` und `effortLevel` nach Wunsch.
@@ -47,14 +47,14 @@ und `hooks` übernehmen, `model` und `effortLevel` nach Wunsch.
 
 ```bash
 cd <repo>
-cp <bauplan>/project/CLAUDE.md CLAUDE.md
-cp <bauplan>/project/SLICES.md SLICES.md
-cp <bauplan>/project/AGENTS.md.example AGENTS.md
+cp <starter>/project/CLAUDE.md CLAUDE.md
+cp <starter>/project/SLICES.md SLICES.md
+cp <starter>/project/AGENTS.md.example AGENTS.md
 mkdir -p .claude/rules .claude/hooks
-cp <bauplan>/project/.claude/settings.json .claude/settings.json
-cp <bauplan>/project/.claude/rules/README.md .claude/rules/
-cp <bauplan>/home/hooks/guard_shell.py .claude/hooks/
-cat <bauplan>/project/.gitignore.example >> .gitignore
+cp <starter>/project/.claude/settings.json .claude/settings.json
+cp <starter>/project/.claude/rules/README.md .claude/rules/
+cp <starter>/home/hooks/guard_shell.py .claude/hooks/
+cat <starter>/project/.gitignore.example >> .gitignore
 ```
 
 Dann die Platzhalter in `CLAUDE.md` und `AGENTS.md` füllen und die passende

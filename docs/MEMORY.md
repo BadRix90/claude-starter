@@ -43,7 +43,7 @@ paths:
 
 Regeln in Unterordnern werden rekursiv gefunden. Symlinks funktionieren, fragen aber
 einmal pro Projekt nach Freigabe. Persönliche Regeln für alle Projekte liegen in
-`~/.claude/rules/`, so wie im Bauplan.
+`~/.claude/rules/`, so wie im Starter.
 
 ## Auto-Memory steuern
 
@@ -72,5 +72,5 @@ sammelt. Vorsicht: der Agent bekommt damit Schreibrechte auf diesen Ordner.
 Nach `/compact` liest Claude Code `CLAUDE.md` im Projekt-Root neu. Pfadgebundene Regeln
 laden wieder, sobald eine passende Datei berührt wird. Chat-Anweisungen gehen verloren.
 Ein Abschnitt „Compact Instructions“ in `CLAUDE.md` sagt, was die Zusammenfassung
-behalten soll. Der Bauplan nennt dort: Slice, Akzeptanzpunkte, geänderte Dateien,
+behalten soll. Der Starter nennt dort: Slice, Akzeptanzpunkte, geänderte Dateien,
 offene Punkte.
