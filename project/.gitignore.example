@@ -1,0 +1,12 @@
+# Claude Code: persönlich, nie committen
+.claude/settings.local.json
+.claude/agent-memory-local/
+CLAUDE.local.md
+
+# graphify: Graph ist Build-Artefakt
+graphify-out/
+
+# Secrets
+.env
+.env.*
+!.env.example

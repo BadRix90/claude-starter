@@ -1,0 +1,36 @@
+# AGENTS.md
+
+> Nach `AGENTS.md` kopieren. Claude Code liest diese Datei zusätzlich zu `CLAUDE.md`
+> (oder statt ihrer, wenn es keine `CLAUDE.md` gibt). Andere Coding-Agenten lesen sie auch.
+> **Wann lesen:** vor der Pflichtmatrix (siehe `~/.claude/rules/12-definition-of-done.md`)
+> und bei jedem Runtime-Pfad-Audit.
+
+## Verbraucher
+
+Jeder Slice prüft alle Einträge. Nicht betroffene werden als N/A begründet.
+
+| Verbraucher | Einstieg | Was er liest | Was er schreibt |
+|---|---|---|---|
+| REST-API | `<apis.py / controller>` | | |
+| Service-Schicht | `<services.py>` | | |
+| Export (PDF, XML, CSV) | `<…>` | | |
+| Hintergrund-Jobs | `<worker, cron>` | | |
+| Frontend | `<…>` | | |
+| Externe SDKs | `<…>` | | |
+
+## Invarianten
+
+<!-- Regeln, die nie brechen dürfen. Eine Zeile je Invariante, mit Ort der Prüfung. -->
+- `<z. B. Eine finalisierte Rechnung wird nie verändert. Prüfung: services/invoice.py:finalize>`
+- `<z. B. Jede Query ist tenant-gefiltert. Prüfung: selectors/*.py>`
+
+## Zweite Pfade
+
+<!-- Alternative Einstiege, die neue Regeln gern umgehen. -->
+- `<z. B. Admin-Aktion X schreibt am Service vorbei>`
+- `<z. B. Management-Command Y liest gespeicherten Output als Eingabe>`
+
+## Historische Daten
+
+<!-- Was bei Bestandsdatensätzen anders ist als bei neuen. -->
+- `<…>`

@@ -1,0 +1,20 @@
+{
+  "_hinweis": "Nach .mcp.json kopieren. Wird committet und gilt fuer das Team. Secrets nur als ${ENV_VAR}, nie als Wert. Doku: https://code.claude.com/docs/en/mcp",
+  "mcpServers": {
+    "beispiel-datenbank": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@beispiel/postgres-mcp"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}"
+      }
+    },
+    "beispiel-remote": {
+      "type": "http",
+      "url": "https://mcp.beispiel.de/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BEISPIEL_TOKEN}"
+      }
+    }
+  }
+}

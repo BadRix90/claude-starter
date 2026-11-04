@@ -1,0 +1,9 @@
+# Persönliche Abweichungen für dieses Repo
+
+> Nach `CLAUDE.local.md` kopieren. Steht in `.gitignore`, wird nie committet.
+> Lädt zusätzlich zu `CLAUDE.md`. Nur, was dich betrifft, nicht das Team.
+
+- Lokale Ports, falls sie von der Projektvorgabe abweichen.
+- Pfade zu lokalen Werkzeugen oder Datenbanken.
+- Eigene Abkürzungen, die Claude kennen soll.
+- Was du gerade testest und Claude nicht anfassen soll.

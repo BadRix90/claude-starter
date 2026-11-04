@@ -1,0 +1,17 @@
+# Projektprofil für Agenten
+
+> Nach `.claude/team.md` kopieren. Gelesen von `/auftrag` und den Agenten aus
+> `extras/`. Ohne aktivierte Extras wird diese Datei nicht gebraucht.
+> Eine Zeile je Schlüssel, keine Prosa.
+
+```
+test:          python -m pytest -q
+lint:          ruff check .
+ci:                                  # optional: komplette lokale CI-Kette
+branch:        main                  # Arbeitsbranch
+berichte:      docs/slices           # Ablage der Abschlussberichte
+frozen:                              # optional: Ablage der eingefrorenen Karte, sonst <berichte>/_frozen
+tracking:      SLICES.md
+board:         keins                 # trello | github-issues | keins
+verbraucher:   API, Service, Export  # Kurzform, Details in AGENTS.md
+```
