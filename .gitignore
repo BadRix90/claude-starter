@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Claude Code, lokal
+.claude/settings.local.json
+CLAUDE.local.md
+graphify-out/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
