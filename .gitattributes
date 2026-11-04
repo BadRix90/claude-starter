@@ -1,0 +1,7 @@
+# Einheitliche Zeilenenden: LF im Repo, auch unter Windows.
+* text=auto eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
