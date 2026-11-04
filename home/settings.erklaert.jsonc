@@ -1,0 +1,69 @@
+// Dieselbe Datei wie settings.json, mit Kommentaren.
+// JSON erlaubt keine Kommentare, deshalb liegt die Erklärung getrennt.
+// Nach ~/.claude/settings.json kommt nur settings.json, nicht diese Datei.
+// Referenz aller Schlüssel: https://code.claude.com/docs/en/settings-reference
+{
+  // Startmodell. Alias statt Versionsnummer, siehe rules/40-modellwahl.md.
+  // /model in der Session überschreibt und speichert hierher zurück.
+  "model": "opus",
+
+  // Default-Effort für Modelle ohne gespeicherten Wert: low | medium | high | xhigh.
+  // "max" geht hier nicht, nur per /effort oder --effort.
+  "effortLevel": "high",
+
+  // Ist das Hauptmodell überlastet, springt dieser eine Turn hierhin.
+  "fallbackModel": ["sonnet"],
+
+  // Antwortsprache. Wird unvalidiert an Claude gereicht.
+  "language": "german",
+
+  // Transkripte und Snapshots nach so vielen Tagen löschen. Minimum 1.
+  "cleanupPeriodDays": 30,
+
+  "permissions": {
+    // Startmodus: default (manuell), acceptEdits, plan.
+    // "auto" wirkt nur in ~/.claude/settings.json, nicht im Projekt.
+    // Erklärung aller Modi: docs/MODI-UND-SESSIONS.md
+    "defaultMode": "default",
+
+    // deny gilt in jedem Modus, auch bypassPermissions.
+    "deny": [
+      "Read(**/.env)", "Read(**/.env.*)",
+      "Edit(**/.env)", "Edit(**/.env.*)",
+      "Read(**/*.pem)", "Read(**/*.key)", "Read(**/id_rsa*)"
+    ],
+
+    // ask fragt immer nach, auch im Auto-Modus.
+    "ask": ["Bash(git push *)", "Bash(gh pr merge *)"]
+  },
+
+  // Hooks laufen außerhalb des Modells. Exit 2 blockt, stderr geht an Claude.
+  // $HOME kennen Git Bash, PowerShell, zsh und bash. Klappt es nicht:
+  // absoluten Pfad eintragen, z. B. "python C:/Users/<name>/.claude/hooks/guard_shell.py".
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$HOME/.claude/hooks/guard_shell.py\"",
+            "timeout": 10,
+            "statusMessage": "guard_shell prüft den Befehl"
+          }
+        ]
+      }
+      // Weitere Ideen, siehe docs/HOOKS.md:
+      // PostToolUse Edit|Write  -> Formatter (ruff format, prettier)
+      // Stop                    -> Erinnerung an Tracking-Datei
+      // SessionStart            -> git status + Branch ausgeben
+    ]
+  }
+
+  // Weitere nützliche Schlüssel (bewusst nicht gesetzt):
+  // "attribution": { "commit": "" }      -> Co-Authored-By-Zeile abschalten
+  // "outputStyle": "Concise"             -> kürzere Antworten
+  // "modelSettings": { "claude-opus-5-5": { "effort": "medium" } }
+  // "enabledPlugins": {}, "extraKnownMarketplaces": {}
+  // "statusLine": { "type": "command", "command": "..." }
+}
