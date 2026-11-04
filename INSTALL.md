@@ -26,6 +26,7 @@ cp home/CLAUDE.md ~/.claude/CLAUDE.md
 cp -r home/rules ~/.claude/rules
 cp -r home/hooks ~/.claude/hooks
 cp -r home/skills/* ~/.claude/skills/
+cp home/statusline.py ~/.claude/statusline.py
 cp home/settings.json ~/.claude/settings.json
 ```
 

@@ -20,6 +20,10 @@
       "Bash(gh pr merge *)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "python \"$HOME/.claude/statusline.py\""
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -30,6 +34,17 @@
             "command": "python \"$HOME/.claude/hooks/guard_shell.py\"",
             "timeout": 10,
             "statusMessage": "guard_shell prüft den Befehl"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$HOME/.claude/hooks/context_radar.py\"",
+            "timeout": 5
           }
         ]
       }

@@ -38,6 +38,7 @@ def check(command: str) -> str | None:
 
 def main() -> int:
     """Read the hook payload from stdin and exit 2 on a forbidden command."""
+    sys.stderr.reconfigure(encoding="utf-8")  # Windows-Konsole ist sonst cp1252
     payload = json.load(sys.stdin)
     command = str(payload.get("tool_input", {}).get("command", ""))
     reason = check(command)

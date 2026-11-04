@@ -111,6 +111,7 @@ nicht als Befehl.
 | Tracking nicht vergessen | `Stop` | wenn `SLICES.md` unverändert und Code geändert: Hinweis |
 | Benachrichtigung | `Notification` | Desktop-Toast über `terminalSequence` oder ein Skript |
 | Budget für Subagenten | `SubagentStart` | Zähler in Datei, ab Grenze Exit 2 |
+| Kontext-Radar (eingebaut) | Statusline + `UserPromptSubmit` | Statusline schreibt `used_percentage` je Session in eine Datei, der Hook liest sie und warnt Claude ab 50 %. Kein Hook-Input enthält Token-Zahlen, deshalb der Umweg. Siehe [`AUS-DER-COMMUNITY.md`](AUS-DER-COMMUNITY.md) |
 
 Jeder neue Hook bekommt einen Test wie in `tests/test_guard_shell.py`: Liste
 verbotener Befehle, Liste erlaubter, beide müssen stimmen.

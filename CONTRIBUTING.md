@@ -9,6 +9,10 @@ Der Starter lebt davon, dass Leute ihre Erfahrungen zurückgeben. Drei Wege:
 - **Direkt an Kay Dietrich** auf LinkedIn: <https://www.linkedin.com/in/kaydietrich/>.
   Gut für „bei mir funktioniert das so besser“, Erfahrungsberichte, Fragen zum Einsatz.
 
+Was aufgenommen wird, landet mit Namen und Prüfergebnis in
+[`docs/AUS-DER-COMMUNITY.md`](docs/AUS-DER-COMMUNITY.md). Wer nicht genannt werden
+will, sagt es dazu.
+
 ## Pull Requests
 
 - Eine Änderung pro PR. Regeln ändern sich einzeln, nicht im Paket.

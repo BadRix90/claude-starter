@@ -37,6 +37,7 @@ def is_test_file(path: str) -> bool:
 
 def main() -> int:
     """Exit 2 when the edited path violates the agent's mode."""
+    sys.stderr.reconfigure(encoding="utf-8")  # Windows-Konsole ist sonst cp1252
     mode = sys.argv[1] if len(sys.argv) > 1 else ""
     payload = json.load(sys.stdin)
     path = str(payload.get("tool_input", {}).get("file_path", ""))

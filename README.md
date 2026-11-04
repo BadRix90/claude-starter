@@ -39,7 +39,8 @@ entstanden. Tote Regeln verwirren Claude, also weg damit, wenn sie nicht zu dir 
 │   ├── 10-workflow.md …                                   └── .claude/
 ├── settings.json                 Modell, deny, Hooks          ├── settings.json          Team-Permissions
 ├── hooks/      (Python)          Leitplanken, kein Bitten     ├── rules/  (pfadgebunden) Stack-Regeln
-└── skills/     /einrichten /slice /audit /commit              └── hooks/
+├── statusline.py                 Kontext-Radar ab 50 %        └── hooks/
+└── skills/     /einrichten /slice /audit /commit
 ```
 
 Kurz in `CLAUDE.md`, ein Thema je Regel, harte Grenzen in Hooks, Referenzwissen in
@@ -50,7 +51,7 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 
 | Ordner | Inhalt | Wird zu |
 |---|---|---|
-| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 2 Hooks, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
+| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 3 Hooks, Statusline mit Kontext-Radar, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
 | [`project/`](project/) | Projekt-`CLAUDE.md`, `AGENTS.md`, `SLICES.md`, `.mcp.json`, Projekt-Settings, Vorlagen | `<repo>/` |
 | [`stacks/`](stacks/) | Varianten: generisch, Django + Angular, Astro | `<repo>/.claude/rules/` |
 | [`extras/`](extras/) | Agenten-Team (5 Rollen), Workflows, Manager-Skill. Opt-in. | `~/.claude/agents/`, `workflows/`, `skills/` |
@@ -69,6 +70,7 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 | [`HOOKS.md`](docs/HOOKS.md) | Ereignisse, Exit-Codes, JSON-Ausgabe, Windows, Ideen für eigene Hooks |
 | [`MEMORY.md`](docs/MEMORY.md) | `CLAUDE.md` gegen Auto-Memory, Regeln, Gedächtnis für Agenten |
 | [`ANPASSEN.md`](docs/ANPASSEN.md) | Reihenfolge nach dem Fork |
+| [`AUS-DER-COMMUNITY.md`](docs/AUS-DER-COMMUNITY.md) | Ideen von anderen, geprüft und eingebaut oder als offen markiert, mit Namen |
 | [`QUELLEN.md`](docs/QUELLEN.md) | Alle Doku-Links, Werkzeuge, Vergleichs-Repos |
 
 ## Die Regeln, in einem Absatz

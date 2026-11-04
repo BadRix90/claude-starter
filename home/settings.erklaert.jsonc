@@ -37,6 +37,14 @@
     "ask": ["Bash(git push *)", "Bash(gh pr merge *)"]
   },
 
+  // Statuszeile: Modell, Kontext-Balken, Warnung ab 50 %. Läuft nach jeder
+  // API-Antwort und schreibt den Prozentwert in eine Datei je Session, die der
+  // Hook context_radar unten liest. Idee aus docs/AUS-DER-COMMUNITY.md.
+  "statusLine": {
+    "type": "command",
+    "command": "python \"$HOME/.claude/statusline.py\""
+  },
+
   // Hooks laufen außerhalb des Modells. Exit 2 blockt, stderr geht an Claude.
   // $HOME kennen Git Bash, PowerShell, zsh und bash. Klappt es nicht:
   // absoluten Pfad eintragen, z. B. "python C:/Users/<name>/.claude/hooks/guard_shell.py".
@@ -53,11 +61,24 @@
           }
         ]
       }
-      // Weitere Ideen, siehe docs/HOOKS.md:
-      // PostToolUse Edit|Write  -> Formatter (ruff format, prettier)
-      // Stop                    -> Erinnerung an Tracking-Datei
-      // SessionStart            -> git status + Branch ausgeben
+    ],
+    // Vor jedem Prompt: liest den Kontextstand der Statusline und sagt Claude
+    // ab 50 %, dass eine Übergabe ansteht, ab 75 % dringlicher. Blockt nie.
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$HOME/.claude/hooks/context_radar.py\"",
+            "timeout": 5
+          }
+        ]
+      }
     ]
+    // Weitere Ideen, siehe docs/HOOKS.md:
+    // PostToolUse Edit|Write  -> Formatter (ruff format, prettier)
+    // Stop                    -> Erinnerung an Tracking-Datei
+    // SessionStart            -> git status + Branch ausgeben
   }
 
   // Weitere nützliche Schlüssel (bewusst nicht gesetzt):
