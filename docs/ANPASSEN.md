@@ -4,6 +4,7 @@
 > jeder Schritt zehn Minuten oder weniger. **Vorher:** [`../INSTALL.md`](../INSTALL.md).
 > **Abkürzung:** `/einrichten` in einer Session macht die Schritte 1 bis 7 als Gespräch,
 > Claude fragt und zeigt jeden Diff ([`../home/skills/einrichten/SKILL.md`](../home/skills/einrichten/SKILL.md)).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## 1 Identität
 
@@ -55,6 +56,34 @@ Die Antwort muss aus `00-hardrules.md` kommen, nicht aus dem Gedächtnis.
 
 [`../extras/README.md`](../extras/README.md). Erst, wenn ein Slice regelmäßig eine
 unabhängige Abnahme braucht.
+
+## Wenn etwas nicht greift
+
+Erst nachsehen, was wirklich geladen ist, dann suchen.
+
+| Befehl | Zeigt |
+|---|---|
+| `/memory` | welche `CLAUDE.md` und Regeln geladen sind |
+| `/context` | was wie viel Kontext belegt, nach Kategorie |
+| `/hooks` | die aktiven Hooks. Leer heißt: Datei am falschen Ort oder ungültiges JSON |
+| `/permissions` | die geltenden `allow`- und `deny`-Regeln |
+| `/status` | aus welchen Settings-Dateien die Session liest |
+| `/doctor` | Prüfung von Installation und Konfiguration mit Vorschlägen |
+| `claude --debug` | Log jedes Hook-Laufs mit Exit-Code und Ausgabe |
+| `claude --safe-mode` | Session ohne jede Anpassung, zum Gegenprüfen |
+
+Typische Ursachen:
+
+- **Hook erscheint nicht in `/hooks`:** Komma am Ende oder Kommentar in `settings.json`.
+  JSON erlaubt beides nicht. Deshalb liegt die Erklärung in `settings.erklaert.jsonc`.
+- **Hook läuft, wirkt aber nicht:** die zwei stillen Fallen in [`HOOKS.md`](HOOKS.md).
+- **`python` nicht gefunden:** absoluten Pfad eintragen, siehe [`../INSTALL.md`](../INSTALL.md).
+- **Regel wird nicht befolgt:** steht sie doppelt oder widersprüchlich in zwei Dateien?
+  `/doctor prompt-audit` findet das. Muss sie immer gelten, gehört sie in einen Hook.
+- **Regel nach `/compact` weg:** sie stand nur im Chat oder in einer pfadgebundenen
+  Regel, die seitdem keine passende Datei gesehen hat.
+
+Die offizielle Tabelle nach Symptomen: [Debug your configuration](https://code.claude.com/docs/en/debug-your-config).
 
 ## Was danach regelmäßig ansteht
 

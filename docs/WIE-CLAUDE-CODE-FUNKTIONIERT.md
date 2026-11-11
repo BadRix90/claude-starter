@@ -3,6 +3,7 @@
 > **Für wen:** alle, die den Starter einsetzen und verstehen wollen, warum die
 > Regeln so geschnitten sind. **Danach lesen:** [`WAS-LAEDT-WANN.md`](WAS-LAEDT-WANN.md),
 > [`MODI-UND-SESSIONS.md`](MODI-UND-SESSIONS.md). Quelle: [offizielle Doku](https://code.claude.com/docs/en/how-claude-code-works).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Die Schleife
 

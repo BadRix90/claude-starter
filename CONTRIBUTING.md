@@ -20,6 +20,9 @@ will, sagt es dazu.
   ohne Geschichte wird nicht befolgt.
 - Neue Hooks kommen mit Tests unter `tests/`. `python -m pytest tests/ -q` muss grün sein.
 - Markdown-Links prüfen: `python tools/check_links.py` findet tote relative Links.
+  Tests und Link-Check laufen auch in der CI, auf Linux und Windows.
+- Wer einen Erklärtext in `docs/` ändert, prüft ihn gegen die aktuelle Doku und setzt die
+  Zeile „Geprüft gegen“ auf die eigene Claude-Code-Version (`claude --version`) und den Monat.
 - Commits nach Conventional Commits, Englisch, wie in `home/rules/31-git.md`.
 - Keine persönlichen Pfade, Ports, Firmennamen oder Hostnamen. Der Starter ist für alle.
 

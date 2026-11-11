@@ -3,6 +3,7 @@
 > **Für wen:** alle, die Kosten und Qualität steuern wollen. **Regel dazu:**
 > [`home/rules/40-modellwahl.md`](../home/rules/40-modellwahl.md).
 > Quelle: [Modell-Konfiguration](https://code.claude.com/docs/en/model-config). Stand: November 2026, Versionen ändern sich.
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Aliase
 

@@ -3,6 +3,7 @@
 > **Für wen:** alle, die wissen wollen, warum eine Anweisung nicht ankommt oder
 > warum der Kontext voll ist. **Vorher:** [`WIE-CLAUDE-CODE-FUNKTIONIERT.md`](WIE-CLAUDE-CODE-FUNKTIONIERT.md).
 > Quellen: [Memory](https://code.claude.com/docs/en/memory), [.claude-Verzeichnis](https://code.claude.com/docs/en/claude-directory), [Erweiterungen](https://code.claude.com/docs/en/features-overview).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Die Ebenen
 

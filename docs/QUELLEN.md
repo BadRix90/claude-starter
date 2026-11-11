@@ -1,6 +1,6 @@
 # Quellen
 
-Stand: November 2026. Die offizielle Doku ändert sich oft; bei Zweifel gilt sie,
+Geprüft gegen Claude Code 2.1.310, Doku-Stand November 2026. Die offizielle Doku ändert sich oft; bei Zweifel gilt sie,
 nicht dieser Starter.
 
 ## Offizielle Dokumentation (Anthropic)
@@ -20,6 +20,9 @@ nicht dieser Starter.
 | Dynamische Workflows | <https://code.claude.com/docs/en/workflows> |
 | Hooks-Referenz | <https://code.claude.com/docs/en/hooks> |
 | Hooks-Anleitung | <https://code.claude.com/docs/en/hooks-guide> |
+| Statusline | <https://code.claude.com/docs/en/statusline> |
+| Konfiguration debuggen | <https://code.claude.com/docs/en/debug-your-config> |
+| Settings-Dateien und Rangfolge | <https://code.claude.com/docs/en/settings> |
 | Modell-Konfiguration | <https://code.claude.com/docs/en/model-config> |
 | MCP | <https://code.claude.com/docs/en/mcp> |
 | Kontextfenster | <https://code.claude.com/docs/en/context-window> |

@@ -3,6 +3,7 @@
 > **Für wen:** alle, die eine Regel haben, die wirklich immer gelten muss.
 > **Vorlage:** [`home/hooks/guard_shell.py`](../home/hooks/guard_shell.py), Tests in [`tests/`](../tests/).
 > Quelle: [Hooks-Referenz](https://code.claude.com/docs/en/hooks).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Grundsatz
 
@@ -14,7 +15,7 @@ ist Code, der außerhalb des Modells läuft und blockt, egal was das Modell denk
 
 | Ereignis | Wann | Typische Nutzung |
 |---|---|---|
-| `SessionStart` | Session beginnt | Branch und `git status` ausgeben, Kontext laden |
+| `SessionStart` | Session beginnt, wird fortgesetzt oder kompaktiert (Matcher `startup`, `resume`, `clear`, `compact`, `fork`) | Arbeitsstand nach Kompaktierung zurückspielen: [`reinject.py`](../home/hooks/reinject.py) |
 | `UserPromptSubmit` | Prompt abgeschickt, bevor Claude ihn sieht | Prompt prüfen oder anreichern |
 | `PreToolUse` | vor jedem Werkzeugaufruf | verbotene Befehle und Pfade blocken |
 | `PermissionRequest` | wenn ein Dialog erscheinen würde | automatisch entscheiden |
@@ -101,6 +102,46 @@ nicht als Befehl.
 - PowerShell-Skripte: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File <pfad>`.
 - Python-Hooks wie im Starter laufen überall gleich und brauchen kein `jq`.
 
+## Kontext zurückgeben: Klartext oder JSON
+
+Bei `SessionStart` und `UserPromptSubmit` nimmt Claude Code den Klartext auf stdout
+direkt in den Kontext. Ein Hook, der nur etwas mitteilen will, braucht also kein JSON.
+So arbeitet [`reinject.py`](../home/hooks/reinject.py). Die Grenze liegt bei 10.000
+Zeichen je Feld; was darüber liegt, landet in einer Datei, und Claude bekommt nur den Pfad
+und eine Vorschau.
+
+## Zwei stille Fallen
+
+Beide erzeugen keine Fehlermeldung. Der Hook läuft, und nichts passiert.
+
+1. **Ausgabe aus dem Shell-Profil vor dem JSON.** Schreibt `~/.bashrc` oder `~/.zshrc`
+   beim Start etwas auf die Konsole, steht das vor dem JSON des Hooks. Beginnt die
+   Ausgabe nicht mit `{`, wird sie verworfen. Abhilfe: solche Ausgaben nur in
+   interaktiven Shells zulassen.
+
+   ```bash
+   if [[ $- == *i* ]]; then
+     echo "Shell bereit"
+   fi
+   ```
+
+2. **`additionalContext` oder `permissionDecision` auf der falschen Ebene.** Beide
+   gehören in `hookSpecificOutput`, zusammen mit `hookEventName`. Auf oberster Ebene
+   parst das JSON fehlerfrei, und Claude Code ignoriert die Felder kommentarlos.
+   Vorlage für die richtige Form: [`context_radar.py`](../home/hooks/context_radar.py).
+
+Beides findet `claude --debug`: im Log nach `Hook output does not start with {` und
+`Hook JSON output had unrecognized keys` suchen. `/hooks` zeigt, welche Hooks
+überhaupt registriert sind. Matcher unterscheiden Groß- und Kleinschreibung.
+
+## Stop-Hooks: zwei Besonderheiten
+
+Ein `Stop`-Hook, der blockt, lässt Claude weiterarbeiten. Damit daraus keine Schleife
+wird, steht im Input das Feld `stop_hook_active`: ist es `true`, läuft Claude schon wegen
+eines Stop-Hooks weiter, und der Hook sollte sofort mit Exit 0 enden. Blockt ein
+Stop-Hook achtmal in Folge, ohne dass Claude dazwischen ein Werkzeug aufruft, setzt
+Claude Code sich darüber hinweg.
+
 ## Ideen für eigene Hooks
 
 | Ziel | Ereignis | Skizze |
@@ -111,6 +152,7 @@ nicht als Befehl.
 | Tracking nicht vergessen | `Stop` | wenn `SLICES.md` unverändert und Code geändert: Hinweis |
 | Benachrichtigung | `Notification` | Desktop-Toast über `terminalSequence` oder ein Skript |
 | Budget für Subagenten | `SubagentStart` | Zähler in Datei, ab Grenze Exit 2 |
+| Arbeitsstand nach Kompaktierung (eingebaut) | `SessionStart`, matcher `compact` | Branch, letzte Commits, offene Änderungen und laufende Slices als Klartext auf stdout. Die `CLAUDE.md` lädt Claude Code selbst neu, der Stand ginge sonst verloren |
 | Kontext-Radar (eingebaut) | Statusline + `UserPromptSubmit` | Statusline schreibt `used_percentage` je Session in eine Datei, der Hook liest sie und warnt Claude ab 50 %. Kein Hook-Input enthält Token-Zahlen, deshalb der Umweg. Siehe [`AUS-DER-COMMUNITY.md`](AUS-DER-COMMUNITY.md) |
 
 Jeder neue Hook bekommt einen Test wie in `tests/test_guard_shell.py`: Liste

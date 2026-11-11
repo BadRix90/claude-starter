@@ -1,5 +1,7 @@
 # Claude Starter
 
+[![CI](https://github.com/BadRix90/claude-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/BadRix90/claude-starter/actions/workflows/ci.yml)
+
 Ich arbeite täglich mit [Claude Code](https://code.claude.com/docs/en/overview) und
 habe dabei viele Fehler gemacht. Fehler, die Tokens, Nerven und Stress gekostet haben.
 Die habe ich nach und nach zusammen mit Claude abgestellt, bis es richtig gut lief.
@@ -51,12 +53,12 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 
 | Ordner | Inhalt | Wird zu |
 |---|---|---|
-| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 3 Hooks, Statusline mit Kontext-Radar, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
+| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 4 Hooks, Statusline mit Kontext-Radar, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
 | [`project/`](project/) | Projekt-`CLAUDE.md`, `AGENTS.md`, `SLICES.md`, `.mcp.json`, Projekt-Settings, Vorlagen | `<repo>/` |
 | [`stacks/`](stacks/) | Varianten: generisch, Django + Angular, Astro | `<repo>/.claude/rules/` |
 | [`extras/`](extras/) | Agenten-Team (5 Rollen), Workflows, Manager-Skill. Opt-in. | `~/.claude/agents/`, `workflows/`, `skills/` |
 | [`docs/`](docs/) | die Erklärtexte, siehe unten | zum Lesen |
-| [`tests/`](tests/) | Tests für die Hooks (`python -m pytest tests/ -q`) | bleibt hier |
+| [`tests/`](tests/) | Tests für Hooks und Konfiguration (`python -m pytest tests/ -q`), laufen bei jedem Push und Pull Request auf Linux und Windows | bleibt hier |
 | [`tools/`](tools/) | `check_links.py` prüft alle Markdown-Links | bleibt hier |
 
 ## Die Erklärtexte, in Lesereihenfolge
@@ -69,6 +71,7 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 | [`MODELLWAHL.md`](docs/MODELLWAHL.md) | Fable, Opus, Sonnet, Haiku, Effort-Stufen, Kosten, Subagenten-Modelle |
 | [`HOOKS.md`](docs/HOOKS.md) | Ereignisse, Exit-Codes, JSON-Ausgabe, Windows, Ideen für eigene Hooks |
 | [`MEMORY.md`](docs/MEMORY.md) | `CLAUDE.md` gegen Auto-Memory, Regeln, Gedächtnis für Agenten |
+| [`DATENSCHUTZ.md`](docs/DATENSCHUTZ.md) | Was Claude Code im Klartext auf der Platte ablegt, wie man es begrenzt und löscht |
 | [`ANPASSEN.md`](docs/ANPASSEN.md) | Reihenfolge nach dem Fork |
 | [`AUS-DER-COMMUNITY.md`](docs/AUS-DER-COMMUNITY.md) | Ideen von anderen, geprüft und eingebaut oder als offen markiert, mit Namen |
 | [`QUELLEN.md`](docs/QUELLEN.md) | Alle Doku-Links, Werkzeuge, Vergleichs-Repos |

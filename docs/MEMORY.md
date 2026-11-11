@@ -3,6 +3,7 @@
 > **Für wen:** alle, die sich fragen, warum Claude etwas vergisst oder sich etwas
 > falsch merkt. **Dazu:** [`WAS-LAEDT-WANN.md`](WAS-LAEDT-WANN.md).
 > Quelle: [Memory-Doku](https://code.claude.com/docs/en/memory).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Zwei Systeme
 
@@ -74,3 +75,6 @@ laden wieder, sobald eine passende Datei berührt wird. Chat-Anweisungen gehen v
 Ein Abschnitt „Compact Instructions“ in `CLAUDE.md` sagt, was die Zusammenfassung
 behalten soll. Der Starter nennt dort: Slice, Akzeptanzpunkte, geänderte Dateien,
 offene Punkte.
+
+Den Arbeitsstand selbst (Branch, letzte Commits, offene Änderungen, laufende Slices)
+spielt der Hook [`reinject.py`](../home/hooks/reinject.py) nach jeder Kompaktierung zurück.

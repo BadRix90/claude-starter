@@ -3,6 +3,7 @@
 > **Für wen:** alle, die zwischen „fragt dauernd“ und „macht zu viel“ den richtigen
 > Punkt suchen. **Vorher:** [`WIE-CLAUDE-CODE-FUNKTIONIERT.md`](WIE-CLAUDE-CODE-FUNKTIONIERT.md).
 > Quellen: [Permission-Modi](https://code.claude.com/docs/en/permission-modes), [Agenten parallel](https://code.claude.com/docs/en/agents), [Subagenten](https://code.claude.com/docs/en/sub-agents).
+> **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
 ## Teil 1: Permission-Modi
 
