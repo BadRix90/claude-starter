@@ -28,6 +28,17 @@ BLOCKED = [
     "echo SECRET=1 > backend/.env",
     "sed -i 's/a/b/' .env",
     "cp .env.example .env",
+    "cat .env",
+    "cat backend/.env",
+    "head -3 .env.local",
+    "Get-Content .env",
+    "type .env",
+    "cd app && cat .env",
+    "cd app\ncat .env",
+    "echo $(cat .env)",
+    "tail -f ./.env | head",
+    "grep SECRET .env",
+    "sed -n 1,5p .env.production",
 ]
 
 ALLOWED = [
@@ -41,6 +52,15 @@ ALLOWED = [
     "python -m pytest -q",
     "echo hello > out.txt",
     "git log --oneline -5",
+    "head .env.sample",
+    "cat .envrc",
+    "ls -la .env",
+    'grep -rn "\\.env" docs/',
+    "grep -r 'process.env' src/",
+    "find . -type f -name .env",
+    "git check-ignore .env",
+    "docker compose --env-file .env up -d",
+    "source .env && python manage.py runserver",
 ]
 
 

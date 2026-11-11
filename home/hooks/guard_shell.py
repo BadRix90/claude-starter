@@ -13,7 +13,21 @@ import sys
 
 _NO_VERIFY = "--no-" + "verify"  # getrennt, damit dieser Text selbst den Hook passiert
 
+# Lesende Zugriffe auf .env. Der Befehl muss am Anfang eines Shell-Abschnitts stehen,
+# damit "find -type f" oder "git check-ignore .env" durchgehen. Vorlagen wie
+# .env.example bleiben lesbar. Das ist eine Leitplanke für den Normalfall, keine Sandbox.
+_SEGMENT_START = r"(?:^|[\n|;&(`])\s*(?:sudo\s+)?"
+_ENV_FILE = r"\.env(?:\.(?!example\b|sample\b|template\b|dist\b)[\w.-]+)?(?=$|[\s\"';|&)])"
+_PRINTERS = r"(?:cat|type|less|more|head|tail|bat|nl|strings|xxd|base64|Get-Content|gc)"
+_FILTERS = r"(?:grep|rg|awk|sed|cut|sort|findstr|Select-String|sls)"
+_READ_REASON = "Lesen von .env über die Shell ist verboten: der Inhalt landet im Klartext-Transkript."
+
 RULES: list[tuple[str, str]] = [
+    (_SEGMENT_START + _PRINTERS + r"\b[^|;&\n]*(?<![\w.-])" + _ENV_FILE, _READ_REASON),
+    (
+        _SEGMENT_START + _FILTERS + r"\b[^|;&\n]*(?<=[\s/])" + _ENV_FILE,
+        _READ_REASON + " Ist .env nur ein Suchmuster, in Anführungszeichen setzen.",
+    ),
     (_NO_VERIFY + r"\b", f"{_NO_VERIFY} ist verboten: Git-Hooks werden nie umgangen."),
     (r"\bgit\s+add\s+(\.|-A|--all)(\s|$|;|&)", "git add . / -A ist verboten: Pfade explizit angeben."),
     (r"\bgit\s+commit\b[^|;&]*\s-a(m?)(\s|$)", "git commit -a ist verboten: Pfade explizit angeben."),

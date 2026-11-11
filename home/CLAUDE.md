@@ -39,4 +39,5 @@
 
 - Skills: `/einrichten` (Ersteinrichtung per Fragen), `/slice`, `/audit`, `/commit` (siehe [`skills/`](skills/)); `/graphify` kommt von graphify selbst ([`41-graphify.md`](rules/41-graphify.md)).
 - Hooks in [`settings.json`](settings.json) blocken `git add .`, Force-Push, das
-  Umgehen von Git-Hooks und Schreibzugriffe auf `.env`. Das sind Leitplanken, keine Bitten.
+  Umgehen von Git-Hooks sowie Lese- und Schreibzugriffe auf `.env` über die Shell.
+  Das sind Leitplanken, keine Bitten.

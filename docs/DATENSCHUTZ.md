@@ -35,13 +35,15 @@ lesen kann, kann die Transkripte lesen. Ein Backup des Home-Verzeichnisses nimmt
 - `permissions.deny` in [`home/settings.json`](../home/settings.json) sperrt das Lesen und
   Ändern von `.env`, `.pem`, `.key` und `id_rsa` über die Datei-Werkzeuge. Was Claude
   nicht liest, landet nicht im Transkript.
-- [`home/hooks/guard_shell.py`](../home/hooks/guard_shell.py) blockt Schreibzugriffe auf `.env` über die Shell.
+- [`home/hooks/guard_shell.py`](../home/hooks/guard_shell.py) blockt Schreib- und
+  Lesezugriffe auf `.env` über die Shell: `cat`, `head`, `tail`, `type`, `Get-Content`,
+  `grep`, `sed` und verwandte Befehle. Vorlagen wie `.env.example` bleiben lesbar.
 - `cleanupPeriodDays` steht auf 30.
 
-**Grenze:** Die Deny-Regeln greifen bei den Datei-Werkzeugen. Ein Shell-Befehl wie
-`cat .env` läuft über ein anderes Werkzeug. Ob Claude Code ihn in jedem Modus abfängt,
-ist hier nicht verifiziert, und der Shell-Guard des Starters prüft nur Schreibzugriffe.
-Wer sicher gehen will, ergänzt in `guard_shell.py` eine Regel für lesende Befehle auf `.env`.
+**Grenze:** Die Deny-Regeln greifen bei den Datei-Werkzeugen, der Shell-Guard bei den
+üblichen Lesebefehlen. Beides ist eine Leitplanke, keine Sandbox. Ein Skript, das die
+Datei selbst öffnet und ausgibt, oder ein Programm, das beim Start seine Konfiguration
+loggt, kommt daran vorbei. `source .env` bleibt erlaubt, weil dabei nichts ausgegeben wird.
 
 ## Was du zusätzlich einstellen kannst
 
