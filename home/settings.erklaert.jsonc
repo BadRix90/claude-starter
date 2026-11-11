@@ -74,6 +74,22 @@
           }
         ]
       }
+    ],
+    // Nach jeder Kompaktierung (automatisch oder /compact): liest Branch, letzte
+    // Commits, offene Änderungen und laufende Slices frisch aus dem Repo und gibt
+    // sie Claude zurück. Die CLAUDE.md lädt Claude Code selbst neu, der
+    // Arbeitsstand ginge sonst verloren. Weitere Matcher: startup, resume, clear, fork.
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$HOME/.claude/hooks/reinject.py\"",
+            "timeout": 10
+          }
+        ]
+      }
     ]
     // Weitere Ideen, siehe docs/HOOKS.md:
     // PostToolUse Edit|Write  -> Formatter (ruff format, prettier)
