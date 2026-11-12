@@ -7,7 +7,7 @@
 | Variante | Für | Enthält |
 |---|---|---|
 | [`generic/`](generic/) | jedes Projekt | minimale Regeln ohne Framework-Bezug |
-| [`django-angular/`](django-angular/) | Django-Backend + Angular-Frontend | Schichtenmodell, Angular-Konventionen, SCSS-Struktur mit Kontrastregeln |
+| [`django-angular/`](django-angular/) | Django-Backend + Angular-Frontend | Schichtenmodell, Angular-Konventionen, SCSS-Struktur mit Kontrastregeln, Performance (N+1, Indizes, Caching, Lazy Loading, optimistische UI) |
 | [`astro/`](astro/) | Marketing- und Content-Seiten | Content-Collections, Bilder, Performance |
 
 ## Einbau
