@@ -80,9 +80,17 @@ ohne Agent. `/fork` kopiert die ganze Session in eine Hintergrund-Session.
 
 ### Was der Starter daraus macht
 
-Hardrule §2 sagt: ein Agent pro Session. Das ist der Standard für Einzelentwickler,
-weil jede parallele Session Tokens vervielfacht und zwei Schreiber an denselben
-Dateien Schaden anrichten. `extras/` schaltet ein kleines Team mit hartem Budget
+Hardrule §2 sagt: innerhalb einer Session arbeitet ein Agent. Das ist der Standard für
+Einzelentwickler, weil jeder Subagent Tokens vervielfacht und zwei Schreiber an denselben
+Dateien Schaden anrichten.
+
+Parallele Sessions sind erlaubt, wenn sie sich nicht gegenseitig behindern. Geprüft
+wird vor jedem Start, nicht angenommen: Fassen sie dieselben Dateien an? Teilen sie
+Git-Zustand, Ports, Dev-Server, Datenbanken oder Migrationen? Braucht eine das Ergebnis
+der anderen? Ein Ja oder ein Unklar heißt nacheinander. Weil der Starter keine Worktrees
+nutzt (§4), teilen sich alle Sessions ein Verzeichnis, und jede committet nur eigene Pfade.
+
+`extras/` schaltet ein kleines Team mit hartem Budget
 frei: Analyst, Entwickler, QA, Security, dazu Workflows für Slice und Entscheidung.
 Wer das nutzt, liest zuerst [`extras/README.md`](../extras/README.md).
 

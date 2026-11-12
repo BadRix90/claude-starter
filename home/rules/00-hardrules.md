@@ -15,13 +15,27 @@ Ausnahmen: destruktiv, shared-state, security-sensitiv, echte Mehrdeutigkeit (§
 **Warum:** Jede Zwischenfrage kostet einen Turn und reißt den Menschen aus seiner
 Arbeit. Drei „soll ich?“ pro Aufgabe, und der Nutzen des Agenten ist weg.
 
-## §2 Ein Agent pro Session
+## §2 Ein Agent pro Session, parallele Sessions nur ohne gegenseitige Behinderung
 
-Standard ist genau ein Agent. Subagenten, Teams, Workflows und Nebensessions nur,
+Innerhalb einer Session arbeitet genau ein Agent. Subagenten, Teams und Workflows nur,
 wenn das Projekt sie ausdrücklich freischaltet (siehe `extras/` im Starter).
+
+Parallele Sessions dürfen laufen, wenn sie sich nicht gegenseitig behindern. Das wird
+vor jedem Start geprüft, nie angenommen:
+
+- **Dateien:** Fassen die Sessions dieselben Dateien an? Dann nicht parallel.
+- **Git:** Gleiches Verzeichnis, gleicher Branch (§4). Jede Session committet nur eigene
+  Pfade. Kein Rebase, Reset, Stash oder Branch-Wechsel, solange eine andere läuft.
+- **Laufzeit:** Brauchen die Sessions dieselben Ports, Dev-Server, Container,
+  Datenbanken oder Migrationen? Dann nicht parallel.
+- **Abhängigkeit:** Braucht eine Session das Ergebnis der anderen? Dann nacheinander.
+
+Trifft ein Punkt zu oder ist einer unklar: nicht parallel starten, melden. Zeigt sich
+eine Behinderung erst während der Arbeit: stoppen und melden.
 
 **Warum:** Zwei Agenten haben dieselbe Datei geändert, einer hat den anderen
 überschrieben, und die Token-Rechnung war das Dreifache einer Einzelsession.
+Aufgaben, die sich nicht berühren, nacheinander abzuarbeiten, kostet dagegen nur Wartezeit.
 
 ## §3 Modell bewusst wählen
 
@@ -35,7 +49,8 @@ Architekturfrage auf dem billigsten. Beides kostet, einmal Geld, einmal Zeit.
 
 Gearbeitet wird im Hauptverzeichnis auf dem Branch, der beim Start ausgecheckt ist.
 Kein `git worktree add`, kein `isolation: worktree`, kein `EnterWorktree`.
-Nebensessions immer mit `use_worktree: false`. Öffnet Claude Code selbst einen
+Nebensessions nur nach der Prüfung aus §2 und immer mit `use_worktree: false`.
+Öffnet Claude Code selbst einen
 Worktree: stoppen, melden, aus dem Hauptverzeichnis weiterarbeiten.
 
 **Warum:** Automatisch angelegte Worktrees hinterließen Branches und Ordner, die

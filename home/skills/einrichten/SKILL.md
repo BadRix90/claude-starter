@@ -32,6 +32,7 @@ streichen? Nacheinander, nicht als Block. Wer streicht, streicht mit Wissen, nic
 Bequemlichkeit. Du redest niemandem eine Regel ein, du nennst nur den Preis.
 Besonders nachhaken bei:
 - §2 (ein Agent pro Session): Will die Person Subagenten nutzen? Wenn ja, Satz ergänzen.
+  Parallele Sessions sind nach Prüfung erlaubt; wer sie nie will, streicht den Absatz.
 - §4 (kein Worktree): Arbeitet sie bewusst mit Worktrees? Dann streichen.
 - §9.3 (Push nur auf Wort): Wird gestrichen, dann `Bash(git push *)` aus `ask`
   nehmen, damit Regel und Settings zusammenpassen.
