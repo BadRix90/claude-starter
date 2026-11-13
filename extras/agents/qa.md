@@ -19,7 +19,7 @@ Bash nur lesend: `git show`, `git diff`, `git log`, `graphify`.
 4. Regeln prüfen: Scope eingehalten (nichts außerhalb der Karte, nichts an CI oder
    Infrastruktur), Schichtung, 20/400 Zeilen, keine zweite Berechnung derselben
    Semantik, Grenzfälle (Rundung, leere Werte, Bestandsdaten), Invarianten aus `AGENTS.md`.
-5. Negative Gegenprobe aus `~/.claude/rules/12-definition-of-done.md`: sieben Fragen,
+5. Negative Gegenprobe aus `~/.claude/skills/slice/definition-of-done.md`: sieben Fragen,
    kurz beantwortet.
 6. Je Befund eine **konkrete Korrekturanweisung**: „Fehler X in Datei:Zeile, so beheben.“
    Höchstens 5 Befunde, wichtigste zuerst. Keine Stilfragen.

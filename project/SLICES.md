@@ -1,8 +1,8 @@
 # Slices
 
 > Quelle der Wahrheit für den Arbeitsstand. Jede Session trägt ihren Slice ein,
-> jeder Abschluss eine Historie-Zeile. Präfixe: `~/.claude/rules/11-slices.md`.
-> Zustände: `~/.claude/rules/12-definition-of-done.md`.
+> jeder Abschluss eine Historie-Zeile. Präfixe: `~/.claude/skills/slice/SKILL.md`.
+> Zustände: `~/.claude/skills/slice/definition-of-done.md`.
 
 ## Offen und laufend
 

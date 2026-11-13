@@ -16,7 +16,7 @@ Keine Suche bei reinen Code- oder Lokal-Aufgaben ohne externen Faktenbezug.
   Mehrere Aussagen, mehrere URLs.
 - Offizielle Doku vor Blogposts. Blogposts vor Foren. Foren nie allein.
 - Widersprechen sich Quellen: beide nennen, nicht die bequemere wählen.
-- Ist nach der Suche kein Score 1,0 erreicht: ausdrücklich „nicht verifiziert“ schreiben.
+- Bleibt nach der Suche ein Zweifel: ausdrücklich „nicht verifiziert“ schreiben.
 
 ## Für Claude-Code-Fragen
 

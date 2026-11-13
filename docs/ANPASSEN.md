@@ -36,8 +36,8 @@ Klappt `$HOME` nicht: absoluten Pfad eintragen (siehe `settings.erklaert.jsonc`)
 ## 5 Skills
 
 `home/skills/` nach `~/.claude/skills/`. `/slice`, `/audit`, `/commit` erscheinen im
-`/`-Menü. graphify nach [`home/rules/41-graphify.md`](../home/rules/41-graphify.md)
-installieren oder die Regel und den Eintrag in `CLAUDE.md` entfernen.
+`/`-Menü. graphify nach [`../INSTALL.md`](../INSTALL.md) installieren oder
+[`home/rules/41-graphify.md`](../home/rules/41-graphify.md) und den Eintrag in `CLAUDE.md` entfernen.
 
 ## 6 Erstes Projekt
 

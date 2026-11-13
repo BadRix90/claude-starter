@@ -17,7 +17,7 @@ Umfang: $ARGUMENTS (leer = ganzes Repo)
 
 | Feld | Regel | Wie prüfen |
 |---|---|---|
-| Dateigrößen | `30-code-quality.md`: 400 Zeilen | `wc -l` über produktive Dateien, Treffer listen |
+| Dateigrößen | `00-hardrules.md` §11: 400 Zeilen | `wc -l` über produktive Dateien, Treffer listen |
 | Funktionslängen | 20 Zeilen | Stichprobe der größten Dateien |
 | Schichtung | Logik nicht in View, Serializer, Model, Exporter | Grep nach Berechnungen und Bedingungen in diesen Schichten |
 | Doppelte Semantik | `00-hardrules.md` §8 | gleiche Entscheidung an zwei Stellen, `graphify path` nutzen |

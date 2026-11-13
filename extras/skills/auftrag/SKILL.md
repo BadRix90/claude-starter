@@ -83,7 +83,7 @@ Meldet der Workflow `VERIFIED`, prüfst du die QA-Belege stichprobenartig selbst
 - Tracking-Datei: Zustand je Slice, Historie-Zeile, mit expliziten Pfaden committen.
 - Push nur, wenn der Auftrag es nennt. Dann: abgelehnter Push → fetch, rebase, erneut.
 - Pro Slice ein Bericht in `<berichte>` im festen Format aus
-  `~/.claude/rules/12-definition-of-done.md`.
+  `~/.claude/skills/slice/definition-of-done.md`.
 - An den Nutzer: Klartext, was jetzt anders ist und was bewiesen ist. Darunter
   `| Slice | Status | Commits | Bericht |`. Letzte Zeile: „Keine offenen Punkte.“
   oder genau der Grund für `BLOCKED` in einem Satz. Keine Schlussfrage.

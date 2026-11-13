@@ -1,7 +1,8 @@
 # Workflow einer Aufgabe
 
 > **Lädt:** jede Session. **Vorher lesen:** [`00-hardrules.md`](00-hardrules.md).
-> **Danach:** [`11-slices.md`](11-slices.md) für die Einordnung, [`12-definition-of-done.md`](12-definition-of-done.md) für den Abschluss.
+> **Slices:** Ablauf, Präfixe und Abschluss liegen im Skill `/slice`
+> (`~/.claude/skills/slice/`), nicht hier.
 
 ## Reihenfolge, immer
 
@@ -12,30 +13,32 @@
 3. **Lösungsvorschlag an der Wurzel.** Keine Pflasterarbeit: kein `try/except pass`,
    kein Sonderfall-`if` um ein Strukturproblem, kein Workaround, der die Ursache
    stehen lässt.
-4. **Diff zeigen, dann anwenden.** Bei Aufgaben, die mehr als eine Datei berühren,
-   oder bei allem, was das Verhalten ändert.
-5. **Umsetzen im Scope.** Genau X liefern, kein Y oder Z, keine Gelegenheits-Refactors.
-6. **Tests sofort nach jeder Änderung.** Nicht am Ende gesammelt.
+4. **Direkt anwenden.** Vorab zeigen und auf Freigabe warten nur in den vier
+   Fällen aus §1. Sonst steht der Diff im Ergebnis.
+5. **Umsetzen im Scope** (§9.6).
+6. **Tests nach jeder Änderung**, nicht am Ende gesammelt ([`33-testing.md`](33-testing.md)).
 7. **Ergebnis in Klartext.** Was ist jetzt anders, was wurde wie verifiziert.
 
-## Selbsttest vor jeder Rückfrage
+## Wann fragen
 
-Kenne ich die Antwort schon? Gibt es realistisch mehr als eine Antwort? Ändert die
-Antwort, was ich tue? Ist eine davon „nein“, ist die Frage überflüssig.
+Nur in den vier Fällen aus §1, höchstens eine Frage pro Antwort. Vor jeder
+Rückfrage der Selbsttest: Kenne ich die Antwort schon? Gibt es realistisch mehr als
+eine Antwort? Ändert die Antwort, was ich tue? Ist eine davon „nein“, ist die Frage
+überflüssig.
 
 Überflüssige Fragen: „soll ich committen?“ nach einem Commit-Auftrag · „soll ich
 auch X?“ wenn X offensichtlich dazugehört · „A oder B?“ mit klarer Empfehlung ·
 Fragen, deren Antwort im Repo oder in der Doku steht.
 
-Berechtigte Fragen: destruktiv, shared-state, security-sensitiv, echte Mehrdeutigkeit,
-bei der jede Lesart zu deutlich anderer Arbeit führt.
+Unsicherheit über einen Fakt ist kein Grund zu fragen, sondern nachzusehen: Repo,
+Doku, Websuche ([`21-recherche.md`](21-recherche.md)). Bleibt sie, wird sie im
+Ergebnis als unsicher markiert (§7).
 
-## Confidence-Score
+## Ein Thema pro Session
 
-Vor jeder Aktion: Score 0 bis 1. Nur 1,0 wird ausgeführt. Unter 1,0 wird gefragt,
-höchstens eine Frage pro Antwort. Trigger für unter 1,0: „vermutlich“, mehrere
-plausible Optionen, Aktion würde mehr tun als beauftragt, destruktiv oder
-shared-state ohne genau diesen Auftrag.
+Pro Session genau ein Slice. Eine neue Aufgabe mitten in der Arbeit bekommt eine
+neue Session oder wird als Hotfix (H) mit-committet und genannt. Der Session-Titel
+beginnt mit der Slice-ID, dann ein kurzes Thema: `F8 Rechnungen — Upload-Dialog`.
 
 ## Nichts offen lassen
 

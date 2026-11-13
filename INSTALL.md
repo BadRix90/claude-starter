@@ -65,6 +65,19 @@ Optional: `CLAUDE.local.md.example` zu `CLAUDE.local.md` (nicht committen),
 `.mcp.json.example` zu `.mcp.json`, `.claude/team.md.example` zu `.claude/team.md`
 (nur mit [`extras/`](extras/)).
 
+### graphify (optional)
+
+Die Regel [`home/rules/41-graphify.md`](home/rules/41-graphify.md) setzt graphify voraus.
+Einmalig installieren, oder die Regel und ihre Zeile in `~/.claude/CLAUDE.md` löschen:
+
+```bash
+uv tool install graphifyy
+graphify install --platform claude
+```
+
+Danach gibt es `/graphify` als Skill und `graphify` als CLI. Ignore-Muster liest
+graphify nur im Scan-Root.
+
 ## 4 Einrichten lassen
 
 Eine Session starten und `/einrichten` tippen. Claude fragt nach Rolle, Stack, Sprache,
@@ -83,7 +96,9 @@ Danach in derselben Session:
 ```
 
 Und eine Probe für die Hooks: Claude bitten, `git add .` auszuführen. Die Antwort
-muss „Blockiert durch guard_shell“ enthalten.
+muss „Blockiert durch guard_shell“ enthalten. Zweite Probe: eine Python-Datei mit einer
+Funktion über 20 Zeilen schreiben lassen. Claude muss die Meldung von `check_limits`
+bekommen und die Funktion teilen.
 
 ## 6 Weiter
 

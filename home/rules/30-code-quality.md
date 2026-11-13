@@ -3,18 +3,17 @@
 > **Lädt:** jede Session. **Hardrule:** §8 und §11 in [`00-hardrules.md`](00-hardrules.md).
 > **Stack-Details:** liegen im Projekt (`.claude/rules/`), nicht hier.
 
-## Grenzen
+## Form
 
-- Max. 400 Zeilen pro produktiver Datei. Wird es mehr, wird das Thema geteilt.
-- Max. 20 Zeilen pro Funktion.
 - Jede neue öffentliche Funktion: Typannotationen und Docstring.
 - Imports sortiert (isort-kompatibel oder das Äquivalent des Stacks).
+- Meldet [`../hooks/check_limits.py`](../hooks/check_limits.py) eine Überschreitung
+  aus §11: sofort teilen, nicht am Ende.
 
 ## Schichten
 
 - Business-Logik in Services, Lesezugriffe in Selectors. Nie in View, Serializer,
   Model-Hook, Template oder Exporter.
-- Keine zweite Berechnung derselben Semantik. Eine Quelle der Wahrheit pro Regel.
 - Keine impliziten fachlichen Defaults ohne benannte Policy.
 
 ## Verboten

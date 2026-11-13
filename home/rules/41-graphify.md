@@ -1,7 +1,7 @@
 # graphify: erst der Graph, dann die Datei
 
 > **Lädt:** jede Session. **Werkzeug:** [graphify](https://github.com/safishamsi/graphify), Paket `graphifyy` auf PyPI.
-> **Skill:** `/graphify` installiert graphify selbst nach `~/.claude/skills/graphify/` (siehe unten).
+> **Skill:** `/graphify` bringt graphify selbst mit. Installation: `INSTALL.md` im Starter.
 
 ## Warum
 
@@ -9,17 +9,9 @@ Grep-Serien über ein Repo kosten Kontext und finden Symbole, nicht Zusammenhän
 Ein Knowledge Graph liefert Aufrufer, Verbraucher und Pfade zwischen Modulen in
 einem Aufruf.
 
-## Installation (einmalig)
-
-```bash
-uv tool install graphifyy
-graphify install --platform claude
-```
-
-Danach gibt es `/graphify` als Skill und `graphify` als CLI. Der Graph liegt
-je Repo unter `graphify-out/`. Ignore-Muster liest graphify nur im Scan-Root.
-
 ## Regel
+
+Der Graph liegt je Repo unter `graphify-out/`.
 
 1. Liegt `graphify-out/graph.json` im Repo-Root, zuerst dort nachsehen:
    `graphify query "<frage>"`, `graphify explain "<symbol>"`, `graphify path "<A>" "<B>"`.

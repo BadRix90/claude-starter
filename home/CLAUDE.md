@@ -20,24 +20,26 @@
 
 ## Was wo steht
 
-| Thema | Datei | Wann lesen |
-|---|---|---|
-| Nicht verhandelbare Regeln | [`00-hardrules.md`](rules/00-hardrules.md) | immer, zuerst |
-| Ablauf einer Aufgabe | [`10-workflow.md`](rules/10-workflow.md) | vor jeder Änderung |
-| Slices und Session-Namen | [`11-slices.md`](rules/11-slices.md) | beim Start einer Session |
-| Wann etwas „fertig“ ist | [`12-definition-of-done.md`](rules/12-definition-of-done.md) | vor dem Abschlussbericht |
-| Kommunikation | [`20-kommunikation.md`](rules/20-kommunikation.md) | bei jeder Antwort |
-| Recherche und Quellen | [`21-recherche.md`](rules/21-recherche.md) | bei veränderlichen Fakten |
-| Code-Qualität | [`30-code-quality.md`](rules/30-code-quality.md) | beim Schreiben von Code |
-| Git | [`31-git.md`](rules/31-git.md) | vor Commit und Push |
-| Security | [`32-security.md`](rules/32-security.md) | bei Secrets, Auth, Rechten |
-| Tests | [`33-testing.md`](rules/33-testing.md) | bei jedem Fix und Feature |
-| Modellwahl | [`40-modellwahl.md`](rules/40-modellwahl.md) | vor Session und Delegation |
-| graphify | [`41-graphify.md`](rules/41-graphify.md) | bevor Dateien gesucht werden |
+Alle Dateien in `rules/` laden in jeder Session vollständig. Abläufe, die nur manchmal
+gebraucht werden, liegen in Skills und laden erst beim Aufruf.
+
+| Thema | Datei |
+|---|---|
+| Nicht verhandelbare Regeln | [`00-hardrules.md`](rules/00-hardrules.md) |
+| Ablauf einer Aufgabe, wann fragen | [`10-workflow.md`](rules/10-workflow.md) |
+| Kommunikation | [`20-kommunikation.md`](rules/20-kommunikation.md) |
+| Recherche und Quellen | [`21-recherche.md`](rules/21-recherche.md) |
+| Code-Qualität | [`30-code-quality.md`](rules/30-code-quality.md) |
+| Git | [`31-git.md`](rules/31-git.md) |
+| Security | [`32-security.md`](rules/32-security.md) |
+| Tests | [`33-testing.md`](rules/33-testing.md) |
+| graphify | [`41-graphify.md`](rules/41-graphify.md) |
+| Slices, Definition of Done, Abschlussbericht | Skill `/slice` ([`skills/slice/`](skills/slice/)) |
 
 ## Werkzeuge, die ich erwarte
 
 - Skills: `/einrichten` (Ersteinrichtung per Fragen), `/slice`, `/audit`, `/commit` (siehe [`skills/`](skills/)); `/graphify` kommt von graphify selbst ([`41-graphify.md`](rules/41-graphify.md)).
 - Hooks in [`settings.json`](settings.json) blocken `git add .`, Force-Push, das
-  Umgehen von Git-Hooks sowie Lese- und Schreibzugriffe auf `.env` über die Shell.
+  Umgehen von Git-Hooks sowie Lese- und Schreibzugriffe auf `.env` über die Shell
+  und melden nach jedem Schreiben Dateien über 400 und Funktionen über 20 Zeilen.
   Das sind Leitplanken, keine Bitten.

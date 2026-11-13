@@ -20,7 +20,7 @@
 2. Im Projekt `.claude/team.md` aus `project/.claude/team.md.example` füllen.
 3. In `~/.claude/rules/00-hardrules.md` §2 um einen Satz ergänzen:
    „Ausnahme: `/auftrag` und die Agenten aus extras, wenn das Projekt eine `team.md` hat.“
-4. Modelle im Frontmatter der Agenten prüfen ([`40-modellwahl.md`](../home/rules/40-modellwahl.md)).
+4. Modelle im Frontmatter der Agenten prüfen (Hardrule §3, [`docs/MODELLWAHL.md`](../docs/MODELLWAHL.md)).
 
 ## Prinzipien
 

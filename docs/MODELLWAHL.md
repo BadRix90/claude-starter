@@ -1,11 +1,21 @@
 # Modellwahl und Effort
 
 > **Für wen:** alle, die Kosten und Qualität steuern wollen. **Regel dazu:**
-> [`home/rules/40-modellwahl.md`](../home/rules/40-modellwahl.md).
+> Hardrule §3 in [`home/rules/00-hardrules.md`](../home/rules/00-hardrules.md).
 > Quelle: [Modell-Konfiguration](https://code.claude.com/docs/en/model-config). Stand: November 2026, Versionen ändern sich.
 > **Geprüft gegen:** Claude Code 2.1.310, Doku-Stand 11/2026.
 
+## Wer wählt
+
+Das Modell der Session wählst du, vor dem Start oder mit `/model` und `/effort`. Claude
+kann es nicht selbst umstellen, deshalb steht diese Entscheidung hier und nicht in den
+Regeln. Bewusst setzen, nicht den gespeicherten Wert blind übernehmen. Was Claude selbst
+entscheidet, ist das Modell seiner Subagenten: das regelt Hardrule §3.
+
 ## Aliase
+
+In Konfiguration Aliase schreiben, keine Versionsnummern. Volle Modell-IDs nur, wenn eine
+Version gepinnt werden muss.
 
 | Alias | Zeigt auf | Für |
 |---|---|---|

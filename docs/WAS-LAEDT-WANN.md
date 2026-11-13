@@ -58,12 +58,13 @@ So liest Claude die Dateien aus `home/`, und so sind sie verlinkt:
 ```
 ~/.claude/CLAUDE.md          Identität, Rangordnung, Tabelle "Was wo steht"
   └─ rules/00-hardrules.md   gewinnt immer
-     ├─ 10-workflow.md       Ablauf einer Aufgabe
-     │   ├─ 11-slices.md     Einordnung, Session-Name
-     │   └─ 12-definition-of-done.md   Matrix, Gegenprobe, Bericht
+     ├─ 10-workflow.md       Ablauf einer Aufgabe, wann fragen
      ├─ 20-kommunikation.md, 21-recherche.md
      ├─ 30-code-quality.md, 31-git.md, 32-security.md, 33-testing.md
-     └─ 40-modellwahl.md, 41-graphify.md
+     └─ 41-graphify.md
+~/.claude/skills/slice/      lädt erst bei /slice
+  ├─ SKILL.md                Präfixe, Ablauf eines Slice
+  └─ definition-of-done.md   Zustände, Matrix, Gegenprobe, Bericht
 <repo>/CLAUDE.md             Stack, Befehle, Branches, Tracking
   ├─ AGENTS.md               Verbraucher, Invarianten (vor der Matrix lesen)
   ├─ SLICES.md               Stand der Arbeit
@@ -72,6 +73,21 @@ So liest Claude die Dateien aus `home/`, und so sind sie verlinkt:
 
 Jede Regel beginnt mit einer Zeile, wann sie lädt und worauf sie aufbaut.
 Wer eine neue Regel schreibt, hält das so bei.
+
+## Drei Fragen vor jeder neuen Regel
+
+Alles in `rules/` ohne `paths:` kostet in jeder Session Kontext, und jede weitere Regel
+nimmt den anderen Gewicht. Deshalb vor dem Schreiben:
+
+1. **Steht sie schon irgendwo?** Dann dort ändern. Dieselbe Regel an zwei Stellen läuft
+   auseinander und liest sich für Claude wie zwei Regeln.
+2. **Lässt sie sich prüfen?** Dann als Hook oder Linter, nicht als Prosa. So macht es
+   [`check_limits.py`](../home/hooks/check_limits.py) mit den Zeilengrenzen.
+3. **Gilt sie nur manchmal?** Dann in einen Skill oder eine pfadgebundene Regel. So liegen
+   Definition of Done und Abschlussbericht im Skill `/slice` statt in `rules/`.
+
+Und: keine Regel, die sich nicht erfüllen lässt. „Nur bei Sicherheit 1,0 handeln“ neben
+„nie nachfragen“ zwingt Claude, eine von beiden zu brechen. Welche, entscheidet dann der Zufall.
 
 ## Prüfen, ob es ankommt
 

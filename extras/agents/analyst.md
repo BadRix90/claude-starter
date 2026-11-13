@@ -26,7 +26,7 @@ Eingabe: Auftragstext und Pfad zum Projektprofil `.claude/team.md`.
 1. **Ist-Zustand** in drei Sätzen ohne Jargon.
 2. **Betroffene Dateien** mit Pfad und Zeile, je eine Zeile: was dort steht, was sich ändern muss.
 3. **Verbraucher** aus `AGENTS.md` des Projekts: betroffen oder N/A mit Grund.
-4. **Akzeptanzmatrix** nach `~/.claude/rules/12-definition-of-done.md`, Spalte Ergebnis leer.
+4. **Akzeptanzmatrix** nach `~/.claude/skills/slice/definition-of-done.md`, Spalte Ergebnis leer.
 5. **Offene Entscheidungen**: Stellen, an denen zwei Wege plausibel sind, je mit
    kleinster Lösung an der Wurzel. Der Manager gibt sie an `council`.
 6. **Folgekarten**: was nachweislich außerhalb des Auftrags liegt. Nicht bauen, nur nennen.

@@ -1,6 +1,7 @@
 # Definition of Done
 
-> **Lädt:** jede Session. **Vorher:** [`11-slices.md`](11-slices.md). **Hardrule:** §6 in [`00-hardrules.md`](00-hardrules.md).
+> **Lädt:** mit dem Skill `/slice`, und wenn Hardrule §6 vor einem Abschluss hierher schickt.
+> **Hardrule:** §6 in `~/.claude/rules/00-hardrules.md`. **Ablauf:** [`SKILL.md`](SKILL.md).
 > **Verbraucherliste:** steht pro Projekt in `AGENTS.md` (Vorlage: `project/AGENTS.md.example`).
 
 ## Grundsatz

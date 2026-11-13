@@ -53,7 +53,7 @@ Skills, Lesearbeit in Subagenten. Warum das so ist, steht in
 
 | Ordner | Inhalt | Wird zu |
 |---|---|---|
-| [`home/`](home/) | `CLAUDE.md`, 13 Regeln, `settings.json` mit Erklärung, 4 Hooks, Statusline mit Kontext-Radar, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
+| [`home/`](home/) | `CLAUDE.md`, 10 Regeln, `settings.json` mit Erklärung, 5 Hooks, Statusline mit Kontext-Radar, 4 Skills (`/einrichten`, `/slice`, `/audit`, `/commit`) | `~/.claude/` |
 | [`project/`](project/) | Projekt-`CLAUDE.md`, `AGENTS.md`, `SLICES.md`, `.mcp.json`, Projekt-Settings, Vorlagen | `<repo>/` |
 | [`stacks/`](stacks/) | Varianten: generisch, Django + Angular, Astro | `<repo>/.claude/rules/` |
 | [`extras/`](extras/) | Agenten-Team (5 Rollen), Workflows, Manager-Skill. Opt-in. | `~/.claude/agents/`, `workflows/`, `skills/` |
@@ -82,8 +82,9 @@ Eine Aufgabe wird zu Ende gebracht, ohne Zwischenfragen, außer bei Destruktivem
 Security und echter Mehrdeutigkeit. Analyse vor Code. Problem in Klartext. Lösung
 an der Wurzel, kein Pflaster. Genau der Scope, kein Beifang. Tests nach jeder
 Änderung, Bugfix nur mit vorher rotem Test. Commit mit expliziten Pfaden, Push nur
-auf Wort. Fertig ist, was je Akzeptanzpunkt belegt ist, nicht was grün ist. Modell
-bewusst wählen. Erst der Graph, dann die Datei. Kurz antworten, Ergebnis zuerst.
+auf Wort. Fertig ist, was je Akzeptanzpunkt belegt ist, nicht was grün ist. Dateien
+bis 400, Funktionen bis 20 Zeilen, vom Hook geprüft. Erst der Graph, dann die Datei.
+Kurz antworten, Ergebnis zuerst.
 Alles in [`home/rules/`](home/rules/), die Hardrules in
 [`00-hardrules.md`](home/rules/00-hardrules.md).
 

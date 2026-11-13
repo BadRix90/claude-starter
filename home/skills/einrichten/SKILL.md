@@ -47,7 +47,7 @@ Details in `docs/MODI-UND-SESSIONS.md`.
 
 **A5 Modell und Kosten.** „Eher schnell und günstig (`sonnet`), eher gründlich (`opus`),
 oder je nach Aufgabe wechseln?“ Daraus: `model` und `effortLevel` in `settings.json`.
-Bei „wechseln“: `sonnet` als Default, Hinweis auf `/model` und `40-modellwahl.md`.
+Bei „wechseln“: `sonnet` als Default, Hinweis auf `/model` und `docs/MODELLWAHL.md` im Starter.
 
 **A6 Push-Verhalten.** „Darf ich pushen, wenn du ‚push‘ sagst, oder willst du jedes
 Mal eine Rückfrage?“ Daraus: `Bash(git push *)` in `permissions.ask` behalten oder
@@ -55,7 +55,7 @@ nach `allow` verschieben.
 
 **A7 graphify.** „Willst du graphify nutzen (Knowledge Graph statt Grep-Serien)?“
 Nein: `41-graphify.md` löschen, Zeile in `CLAUDE.md` entfernen. Ja: Installationsbefehl
-aus der Regel zeigen, nicht selbst ausführen.
+aus `INSTALL.md` im Starter zeigen, nicht selbst ausführen.
 
 **A8 Extras.** „Brauchst du ein Agenten-Team (Analyst, Entwickler, QA)?“ Standard ist
 nein. Bei ja: auf `extras/README.md` verweisen, nichts kopieren, bis die Person es
