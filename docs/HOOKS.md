@@ -19,7 +19,7 @@ ist Code, der außerhalb des Modells läuft und blockt, egal was das Modell denk
 | `UserPromptSubmit` | Prompt abgeschickt, bevor Claude ihn sieht | Prompt prüfen oder anreichern |
 | `PreToolUse` | vor jedem Werkzeugaufruf | verbotene Befehle und Pfade blocken |
 | `PermissionRequest` | wenn ein Dialog erscheinen würde | automatisch entscheiden |
-| `PostToolUse` | nach dem Werkzeugaufruf | Formatter, Linter, Logging |
+| `PostToolUse` | nach dem Werkzeugaufruf | Grenzen prüfen: [`check_limits.py`](../home/hooks/check_limits.py); Formatter, Linter, Logging |
 | `PostToolUseFailure` | Werkzeug ist gescheitert | Diagnose anhängen |
 | `Stop` | Claude ist fertig | Erinnerung an Tracking, Tests erzwingen |
 | `SubagentStart`, `SubagentStop` | Subagent startet oder endet | Budget zählen |
@@ -153,6 +153,7 @@ Claude Code sich darüber hinweg.
 | Benachrichtigung | `Notification` | Desktop-Toast über `terminalSequence` oder ein Skript |
 | Budget für Subagenten | `SubagentStart` | Zähler in Datei, ab Grenze Exit 2 |
 | Arbeitsstand nach Kompaktierung (eingebaut) | `SessionStart`, matcher `compact` | Branch, letzte Commits, offene Änderungen und laufende Slices als Klartext auf stdout. Die `CLAUDE.md` lädt Claude Code selbst neu, der Stand ginge sonst verloren |
+| Zeilengrenzen (eingebaut) | `PostToolUse`, matcher `Edit\|Write` | [`check_limits.py`](../home/hooks/check_limits.py) zählt nach jedem Schreiben. Datei über 400 oder Python-Funktion über 20 Zeilen: Exit 2, Claude bekommt die Meldung und teilt. Verglichen wird mit `HEAD`, damit Altlasten keinen ungefragten Umbau auslösen. Für TypeScript die ESLint-Regeln `max-lines` und `max-lines-per-function` |
 | Kontext-Radar (eingebaut) | Statusline + `UserPromptSubmit` | Statusline schreibt `used_percentage` je Session in eine Datei, der Hook liest sie und warnt Claude ab 50 %. Kein Hook-Input enthält Token-Zahlen, deshalb der Umweg. Siehe [`AUS-DER-COMMUNITY.md`](AUS-DER-COMMUNITY.md) |
 
 Jeder neue Hook bekommt einen Test wie in `tests/test_guard_shell.py`: Liste

@@ -34,8 +34,17 @@ def test_home_commands_point_at_shipped_scripts() -> None:
     assert missing == []
 
 
-def test_home_registers_all_three_hook_events() -> None:
-    """Shell guard, context radar and reinject are all wired up."""
+def test_home_registers_all_four_hook_events() -> None:
+    """Shell guard, limit check, context radar and reinject are all wired up."""
     hooks = json.loads((ROOT / "home/settings.json").read_text(encoding="utf-8"))["hooks"]
-    assert set(hooks) == {"PreToolUse", "UserPromptSubmit", "SessionStart"}
+    assert set(hooks) == {"PreToolUse", "PostToolUse", "UserPromptSubmit", "SessionStart"}
+    assert hooks["PostToolUse"][0]["matcher"] == "Edit|Write"
     assert hooks["SessionStart"][0]["matcher"] == "compact"
+
+
+def test_explained_settings_name_the_same_hook_scripts() -> None:
+    """settings.erklaert.jsonc documents every script that settings.json runs."""
+    settings = json.loads((ROOT / "home/settings.json").read_text(encoding="utf-8"))
+    explained = (ROOT / "home/settings.erklaert.jsonc").read_text(encoding="utf-8")
+    scripts = [re.search(r"[\w/]+\.py", command).group(0) for command in commands(settings)]
+    assert [script for script in scripts if script not in explained] == []

@@ -3,7 +3,7 @@
 // Nach ~/.claude/settings.json kommt nur settings.json, nicht diese Datei.
 // Referenz aller Schlüssel: https://code.claude.com/docs/en/settings-reference
 {
-  // Startmodell. Alias statt Versionsnummer, siehe rules/40-modellwahl.md.
+  // Startmodell. Alias statt Versionsnummer, siehe docs/MODELLWAHL.md.
   // /model in der Session überschreibt und speichert hierher zurück.
   "model": "opus",
 
@@ -62,6 +62,22 @@
         ]
       }
     ],
+    // Nach jedem Edit und Write: zählt Zeilen. Datei über 400 oder Python-Funktion über
+    // 20 Zeilen (Hardrule §11): Exit 2, Claude bekommt die Meldung und teilt sofort.
+    // Gemeldet wird nur, was gegenüber HEAD neu oder gewachsen ist. Blocken kann der
+    // Hook nichts, das Werkzeug lief schon. Grenzen und Endungen stehen oben im Skript.
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$HOME/.claude/hooks/check_limits.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     // Vor jedem Prompt: liest den Kontextstand der Statusline und sagt Claude
     // ab 50 %, dass eine Übergabe ansteht, ab 75 % dringlicher. Blockt nie.
     "UserPromptSubmit": [
@@ -92,7 +108,7 @@
       }
     ]
     // Weitere Ideen, siehe docs/HOOKS.md:
-    // PostToolUse Edit|Write  -> Formatter (ruff format, prettier)
+    // PostToolUse Edit|Write  -> zusätzlich ein Formatter (ruff format, prettier)
     // Stop                    -> Erinnerung an Tracking-Datei
     // SessionStart            -> git status + Branch ausgeben
   }
